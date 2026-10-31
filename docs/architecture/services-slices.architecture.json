@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "beautifulnodejs Services — Feature Slices",
+    "quality_profile": "showcase",
+    "output": "services-slices.architecture.html"
+  },
+  "components": [
+    {
+      "id": "root",
+      "type": "backend",
+      "label": "src/bin/api.ts",
+      "sublabel": "composition root · tsyringe",
+      "pos": [
+        40,
+        96
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "auth",
+      "type": "backend",
+      "label": "auth slices",
+      "sublabel": "signup · session · password",
+      "pos": [
+        300,
+        96
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "widgets",
+      "type": "backend",
+      "label": "widgets · realtime",
+      "sublabel": "CRUD · ws · SSE",
+      "pos": [
+        560,
+        96
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "platform",
+      "type": "backend",
+      "label": "platform",
+      "sublabel": "authx · httpx · oauthx",
+      "pos": [
+        40,
+        240
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "drizzle",
+      "type": "backend",
+      "label": "Drizzle adapters",
+      "sublabel": "queries.ts per slice",
+      "pos": [
+        300,
+        240
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "emailer",
+      "type": "backend",
+      "label": "platform/email",
+      "sublabel": "outbox relay · senders",
+      "pos": [
+        560,
+        240
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "hub",
+      "type": "backend",
+      "label": "platform/realtime",
+      "sublabel": "EventBus · rooms user:<id>",
+      "pos": [
+        780,
+        240
+      ],
+      "size": [
+        150,
+        60
+      ]
+    },
+    {
+      "id": "shared",
+      "type": "backend",
+      "label": "shared",
+      "sublabel": "apperr · rolex · idgen",
+      "pos": [
+        40,
+        384
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "queue",
+      "type": "messagebus",
+      "label": "BullMQ · Redis",
+      "sublabel": "jobs · DLQ",
+      "pos": [
+        560,
+        384
+      ],
+      "size": [
+        140,
+        60
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Composition root",
+      "wraps": [
+        "root"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Feature slices",
+      "wraps": [
+        "auth",
+        "widgets"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Platform",
+      "wraps": [
+        "platform",
+        "drizzle",
+        "emailer",
+        "hub"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Kernel + durable state",
+      "wraps": [
+        "shared",
+        "queue"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "c1",
+      "from": "root",
+      "to": "auth",
+      "label": "Fastify handlers",
+      "labelAt": [
+        245,
+        172
+      ]
+    },
+    {
+      "id": "c2",
+      "from": "root",
+      "to": "platform",
+      "label": "Deps · tokens",
+      "labelAt": [
+        110,
+        200
+      ]
+    },
+    {
+      "id": "c3",
+      "from": "auth",
+      "to": "drizzle",
+      "label": "Drizzle queries",
+      "labelAt": [
+        370,
+        200
+      ]
+    },
+    {
+      "id": "c4",
+      "from": "widgets",
+      "to": "emailer",
+      "label": "enqueue mail",
+      "labelAt": [
+        628,
+        200
+      ]
+    },
+    {
+      "id": "c5",
+      "from": "widgets",
+      "to": "hub",
+      "label": "EventBus port",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "c6",
+      "from": "emailer",
+      "to": "queue",
+      "label": "relay jobs",
+      "labelAt": [
+        628,
+        344
+      ]
+    },
+    {
+      "id": "c7",
+      "from": "platform",
+      "to": "shared",
+      "label": "apperr · rolex",
+      "labelAt": [
+        110,
+        344
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Vertical slices",
+      "items": [
+        "src/features/<slice>/ ships the same eight files every time: domain.ts · ports.ts · usecase.ts · http.ts · postgres.ts · queries.ts · usecase.test.ts · module.ts",
+        "a port is defined where it is consumed — the use case writes ports.ts; no consumer, no port",
+        "slices never import each other: shared capability is duplicated through a port or promoted into #shared/platform"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "tsyringe + composition root",
+      "items": [
+        "one root: bin/api.ts + bin/worker.ts build concrete adapters, register them under injection tokens, validate config once",
+        "register*(app, Deps) is each slice's whole wiring contract — no container.resolve() inside slices",
+        "the domain is I/O-free (no fastify/zod/tsyringe/drizzle/pg/bullmq/pino) — eslint no-restricted-imports makes it red before review"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Realtime + queues",
+      "items": [
+        "platform/realtime keeps in-process rooms user:<id>; the Redis adapter is the documented >1-replica evolution of the same port",
+        "durable work rides BullMQ: the outbox row in the same DB transaction is what must not be lost — Redis only holds the queue",
+        "consumers are idempotent, keyed on a job id, with capped exponential retries and a dead-letter queue"
+      ]
+    }
+  ]
+}

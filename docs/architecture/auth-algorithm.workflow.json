@@ -1,0 +1,222 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "beautifulnodejs Auth Algorithm",
+    "quality_profile": "showcase",
+    "output": "auth-algorithm.html"
+  },
+  "lanes": [
+    {
+      "id": "caller",
+      "label": "Caller"
+    },
+    {
+      "id": "verifier",
+      "label": "Codes"
+    },
+    {
+      "id": "control",
+      "label": "Gates"
+    },
+    {
+      "id": "mint",
+      "label": "Tokens"
+    },
+    {
+      "id": "records",
+      "label": "Ledger"
+    },
+    {
+      "id": "relay",
+      "label": "Mail"
+    }
+  ],
+  "phases": [
+    {
+      "id": "sign-up",
+      "label": "Signup",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "screen",
+      "label": "Verify + gates",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "issue-tokens",
+      "label": "Tokens + ledger",
+      "fromCol": 4,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "join",
+    "code-issue",
+    "confirm",
+    "screen-account",
+    "pair-mint",
+    "records"
+  ],
+  "nodes": [
+    {
+      "id": "join",
+      "lane": "caller",
+      "col": 0,
+      "type": "frontend",
+      "label": "Signup",
+      "sublabel": "POST /auth/signup"
+    },
+    {
+      "id": "code-issue",
+      "lane": "verifier",
+      "col": 1,
+      "type": "backend",
+      "label": "Issue code",
+      "sublabel": "6 digits · 24h · single-use"
+    },
+    {
+      "id": "mail-relay",
+      "lane": "relay",
+      "col": 1,
+      "type": "messagebus",
+      "label": "BullMQ outbox",
+      "sublabel": "outbox row + job"
+    },
+    {
+      "id": "confirm",
+      "lane": "control",
+      "col": 2,
+      "type": "backend",
+      "label": "Verify",
+      "sublabel": "POST /auth/verify"
+    },
+    {
+      "id": "screen-account",
+      "lane": "control",
+      "col": 3,
+      "type": "security",
+      "label": "Login gates",
+      "sublabel": "password first · stable 403s"
+    },
+    {
+      "id": "pair-mint",
+      "lane": "mint",
+      "col": 4,
+      "type": "backend",
+      "label": "Mint tokens",
+      "sublabel": "JWT 15m · opaque refresh 720h"
+    },
+    {
+      "id": "session-store",
+      "lane": "mint",
+      "col": 5,
+      "type": "database",
+      "label": "sessions",
+      "sublabel": "rotate in place"
+    },
+    {
+      "id": "records",
+      "lane": "records",
+      "col": 5,
+      "type": "database",
+      "label": "audit_logs",
+      "sublabel": "login · revoke"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w1",
+      "from": "join",
+      "to": "code-issue",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "w2",
+      "from": "code-issue",
+      "to": "mail-relay",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "outbox row + job"
+    },
+    {
+      "id": "w3",
+      "from": "code-issue",
+      "to": "confirm",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "w4",
+      "from": "confirm",
+      "to": "screen-account",
+      "label": "code consumed"
+    },
+    {
+      "id": "w5",
+      "from": "screen-account",
+      "to": "pair-mint",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "w6",
+      "from": "pair-mint",
+      "to": "session-store",
+      "label": "insert · rotate"
+    },
+    {
+      "id": "w7",
+      "from": "session-store",
+      "to": "pair-mint",
+      "label": "replayed → CAS miss",
+      "labelSegment": 1
+    },
+    {
+      "id": "w8",
+      "from": "pair-mint",
+      "to": "records",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "login · revoke"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Codes stay out of JWTs",
+      "items": [
+        "6-digit codes are single-use, expire in 24h, and cap wrong guesses; signup is idempotent — re-signup of an unverified email re-issues a code, a verified email answers 409",
+        "the verification mail is durable work: an outbox row rides the signup transaction and a BullMQ worker relays the job into Redis",
+        "reset codes run 30m with a 3-per-5-minute per-email rate limit; a successful reset auto-verifies and revokes all sessions"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Gates",
+      "items": [
+        "the password verifies first — one constant 401; locked, inactive, and unverified gates run only after, so no probe can infer account state",
+        "bcrypt cost 10 over a base64 HMAC-SHA256 pepper pre-hash defeats the 72-byte bcrypt input cap; the pepper lives in env config, never in the DB",
+        "zod validates login bodies at the http.ts edge; failures answer the one {detail, code} envelope"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Tokens",
+      "items": [
+        "access JWT HS256, 15m: sub · email · role · jti — verified by an authx verifier preHandler onto req.identity",
+        "the refresh is an opaque token rotated in place under a compare-and-swap on the presented token — a replay mints nothing",
+        "change-password revokes other sessions by jti-matched refresh; reset revokes all"
+      ]
+    }
+  ]
+}

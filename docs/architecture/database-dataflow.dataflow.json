@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "beautifulnodejs Dataflow — identity + outbox",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1080,
+      560
+    ],
+    "output": "database-dataflow.dataflow.html"
+  },
+  "stages": [
+    {
+      "label": "Clients"
+    },
+    {
+      "label": "Use cases"
+    },
+    {
+      "label": "Postgres"
+    },
+    {
+      "label": "Outbox"
+    },
+    {
+      "label": "Delivery"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "caller",
+      "type": "external",
+      "label": "Auth client",
+      "sublabel": "SPA · SDK",
+      "stage": 0,
+      "row": 0
+    },
+    {
+      "id": "provider",
+      "type": "external",
+      "label": "Google · GitHub",
+      "sublabel": "One Tap · callback",
+      "stage": 0,
+      "row": 2
+    },
+    {
+      "id": "cases",
+      "type": "backend",
+      "label": "Use-case slices",
+      "sublabel": "auth · adminusers · widgets",
+      "stage": 1,
+      "row": 0,
+      "width": 150
+    },
+    {
+      "id": "accounts",
+      "type": "database",
+      "label": "users · sessions",
+      "sublabel": "Drizzle · PgBouncer",
+      "stage": 2,
+      "row": 0
+    },
+    {
+      "id": "codes",
+      "type": "database",
+      "label": "code tables",
+      "sublabel": "verifications · resets",
+      "stage": 2,
+      "row": 1
+    },
+    {
+      "id": "rows",
+      "type": "database",
+      "label": "outbox rows",
+      "sublabel": "status · retry_count",
+      "stage": 3,
+      "row": 0,
+      "tag": "tx"
+    },
+    {
+      "id": "duty",
+      "type": "messagebus",
+      "label": "BullMQ · Redis",
+      "sublabel": "queue · DLQ",
+      "stage": 4,
+      "row": 2
+    },
+    {
+      "id": "mailer",
+      "type": "cloud",
+      "label": "mail sender",
+      "sublabel": "console · SMTP",
+      "stage": 4,
+      "row": 0
+    }
+  ],
+  "flows": [
+    {
+      "id": "f1",
+      "from": "caller",
+      "to": "cases",
+      "label": "REST + Bearer",
+      "route": "straight"
+    },
+    {
+      "id": "f2",
+      "from": "provider",
+      "to": "cases",
+      "label": "ID token · code",
+      "labelDy": 22
+    },
+    {
+      "id": "f3",
+      "from": "cases",
+      "to": "accounts",
+      "label": "users · sessions",
+      "labelAt": [
+        500,
+        201
+      ]
+    },
+    {
+      "id": "f4",
+      "from": "cases",
+      "to": "codes",
+      "label": "6-digit codes",
+      "route": "straight"
+    },
+    {
+      "id": "f5",
+      "from": "cases",
+      "to": "rows",
+      "label": "outbox row in same tx",
+      "route": "bottom-channel",
+      "variant": "emphasis",
+      "channelY": 470,
+      "labelAt": [
+        510,
+        482
+      ]
+    },
+    {
+      "id": "f6",
+      "from": "rows",
+      "to": "duty",
+      "label": "claim → BullMQ job",
+      "labelDy": -18
+    },
+    {
+      "id": "f7",
+      "from": "duty",
+      "to": "mailer",
+      "label": "render → send",
+      "labelDx": 76
+    },
+    {
+      "id": "f8",
+      "from": "mailer",
+      "to": "rows",
+      "label": "settle sent · failed",
+      "variant": "dashed",
+      "route": "straight",
+      "labelAt": [
+        860,
+        105
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Core state",
+      "items": [
+        "users carries role/user_type check constraints, is_active/is_blocked/is_verified and the provider id columns the OAuth flows link by",
+        "sessions hold the opaque rotating refresh token with ip/ua and an absolute expires_at set at login",
+        "codes live in email_verifications (24h) and password_resets (30m, rate-limited per email)"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Outbox",
+      "items": [
+        "the use case writes the state change and the outbox row in one Drizzle transaction — the row is the durability boundary",
+        "the worker claims due rows and relays them into BullMQ jobs keyed on the row id; Redis only holds the queue"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Delivery + ledgers",
+      "items": [
+        "failures back off with capped exponential delay and dead-letter into the queue's DLQ, staying visible in the row's last_error",
+        "audit_logs records admin actions; the janitor purges expired sessions and code rows on its own loop",
+        "the pool is sized for PgBouncer transaction pooling — never for bare Postgres across replicas"
+      ]
+    }
+  ]
+}

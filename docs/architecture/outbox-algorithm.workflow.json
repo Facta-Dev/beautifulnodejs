@@ -1,0 +1,200 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "beautifulnodejs Outbox Algorithm",
+    "quality_profile": "showcase",
+    "output": "outbox-algorithm.html"
+  },
+  "lanes": [
+    {
+      "id": "producers",
+      "label": "Producers"
+    },
+    {
+      "id": "outbox",
+      "label": "Outbox"
+    },
+    {
+      "id": "worker",
+      "label": "Worker"
+    },
+    {
+      "id": "delivery",
+      "label": "Delivery"
+    },
+    {
+      "id": "ledger",
+      "label": "Ledger"
+    }
+  ],
+  "phases": [
+    {
+      "id": "put",
+      "label": "Committed enqueue",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "pull",
+      "label": "Claim + relay",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "finish",
+      "label": "Deliver + settle",
+      "fromCol": 4,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "mutate",
+    "pending",
+    "claim",
+    "bounce-kick",
+    "transmit",
+    "mark-done"
+  ],
+  "nodes": [
+    {
+      "id": "mutate",
+      "lane": "producers",
+      "col": 0,
+      "type": "backend",
+      "label": "Auth use cases",
+      "sublabel": "signup · reset"
+    },
+    {
+      "id": "pending",
+      "lane": "outbox",
+      "col": 1,
+      "type": "database",
+      "label": "email_jobs row",
+      "sublabel": "same Drizzle tx"
+    },
+    {
+      "id": "claim",
+      "lane": "worker",
+      "col": 2,
+      "type": "backend",
+      "label": "Outbox worker",
+      "sublabel": "claim due rows"
+    },
+    {
+      "id": "bounce-kick",
+      "lane": "worker",
+      "col": 3,
+      "type": "messagebus",
+      "label": "Kick BullMQ",
+      "sublabel": "Redis queue · job id"
+    },
+    {
+      "id": "transmit",
+      "lane": "delivery",
+      "col": 4,
+      "type": "cloud",
+      "label": "Sender",
+      "sublabel": "console · SMTP adapter"
+    },
+    {
+      "id": "give-up",
+      "lane": "delivery",
+      "col": 3,
+      "type": "messagebus",
+      "label": "Dead-letter",
+      "sublabel": "poison jobs parked",
+      "width": 110
+    },
+    {
+      "id": "mark-done",
+      "lane": "ledger",
+      "col": 5,
+      "type": "database",
+      "label": "Settle",
+      "sublabel": "sent · failed"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w1",
+      "from": "mutate",
+      "to": "pending",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "w2",
+      "from": "pending",
+      "to": "claim",
+      "route": "drop",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "claim queued · due"
+    },
+    {
+      "id": "w3",
+      "from": "claim",
+      "to": "bounce-kick",
+      "label": "relay job"
+    },
+    {
+      "id": "w4",
+      "from": "bounce-kick",
+      "to": "transmit",
+      "label": "idempotent consumer"
+    },
+    {
+      "id": "w5",
+      "from": "transmit",
+      "to": "mark-done",
+      "label": "sent"
+    },
+    {
+      "id": "w6",
+      "from": "transmit",
+      "to": "give-up",
+      "route": "straight",
+      "label": "attempt fails"
+    },
+    {
+      "id": "w7",
+      "from": "give-up",
+      "to": "claim",
+      "route": "return-left",
+      "fromSide": "left",
+      "toSide": "left",
+      "label": "retry, capped 2^n backoff",
+      "labelSegment": 1
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Committed enqueue",
+      "items": [
+        "the state change and the outbox row live in one DB transaction — never enqueue a job whose DB write failed, never commit a change whose job was lost",
+        "the row, not the Redis job, is the durability boundary: Redis down degrades enqueueing but committed data stays safe"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Claim + relay",
+      "items": [
+        "bin/worker.ts claims due queued rows with jittered polling and bumps each one into a BullMQ job keyed on the outbox id",
+        "the same worker file runs the janitor loop on one AbortController; consumers are idempotent — a retried job must not double-send"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Outcomes",
+      "items": [
+        "retries use capped exponential backoff (attempts + exponential with a ceiling) — a poison job dead-letters instead of looping forever",
+        "settle marks the row sent or failed with last_error, so a dead-lettered job is visible in the table and logs, never silently dropped",
+        "the worker's status changes are its own structured log lines — the claim → send → retry/dead-letter progression tells the story"
+      ]
+    }
+  ]
+}

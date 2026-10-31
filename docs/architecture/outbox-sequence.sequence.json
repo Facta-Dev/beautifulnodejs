@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "beautifulnodejs Outbox Sequence",
+    "quality_profile": "showcase",
+    "output": "outbox-sequence.sequence.html"
+  },
+  "participants": [
+    {
+      "id": "slices",
+      "type": "backend",
+      "label": "auth slices",
+      "sublabel": "use cases"
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "Postgres",
+      "sublabel": "outbox rows"
+    },
+    {
+      "id": "duty",
+      "type": "backend",
+      "label": "outbox worker",
+      "sublabel": "drain · janitor"
+    },
+    {
+      "id": "bmq",
+      "type": "messagebus",
+      "label": "BullMQ · Redis",
+      "sublabel": "queue · DLQ"
+    },
+    {
+      "id": "vendor",
+      "type": "external",
+      "label": "Mail vendor",
+      "sublabel": "SMTP · console"
+    }
+  ],
+  "segments": [
+    {
+      "from": 150,
+      "to": 240,
+      "label": "Committed enqueue"
+    },
+    {
+      "from": 258,
+      "to": 460,
+      "label": "Claim + relay"
+    },
+    {
+      "from": 480,
+      "to": 640,
+      "label": "Deliver + settle"
+    }
+  ],
+  "messages": [
+    {
+      "from": "slices",
+      "to": "store",
+      "y": 168,
+      "label": "INSERT state change + outbox row (one tx)",
+      "variant": "emphasis"
+    },
+    {
+      "from": "store",
+      "to": "slices",
+      "y": 210,
+      "label": "committed",
+      "variant": "return"
+    },
+    {
+      "from": "duty",
+      "to": "store",
+      "y": 264,
+      "label": "poll: claim queued · due rows"
+    },
+    {
+      "from": "store",
+      "to": "duty",
+      "y": 306,
+      "label": "rows + job ids",
+      "variant": "return"
+    },
+    {
+      "from": "duty",
+      "to": "bmq",
+      "y": 348,
+      "label": "add BullMQ job (idempotency key)"
+    },
+    {
+      "from": "bmq",
+      "to": "duty",
+      "y": 390,
+      "label": "job processed",
+      "variant": "return"
+    },
+    {
+      "from": "duty",
+      "to": "vendor",
+      "y": 432,
+      "label": "render verify_email → send"
+    },
+    {
+      "from": "vendor",
+      "to": "duty",
+      "y": 474,
+      "label": "ack",
+      "variant": "return"
+    },
+    {
+      "from": "duty",
+      "to": "store",
+      "y": 520,
+      "label": "mark_sent · or retry capped 2^n → DLQ"
+    },
+    {
+      "from": "duty",
+      "to": "store",
+      "y": 566,
+      "label": "hourly: purge expired sessions + code rows"
+    },
+    {
+      "from": "store",
+      "to": "duty",
+      "y": 618,
+      "label": "purged",
+      "variant": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "slices",
+      "from": 174,
+      "to": 228,
+      "type": "backend"
+    },
+    {
+      "participant": "store",
+      "from": 180,
+      "to": 228,
+      "type": "database"
+    },
+    {
+      "participant": "duty",
+      "from": 258,
+      "to": 606,
+      "type": "backend"
+    },
+    {
+      "participant": "store",
+      "from": 258,
+      "to": 312,
+      "type": "database"
+    },
+    {
+      "participant": "bmq",
+      "from": 342,
+      "to": 396,
+      "type": "messagebus"
+    },
+    {
+      "participant": "vendor",
+      "from": 426,
+      "to": 480,
+      "type": "external"
+    },
+    {
+      "participant": "store",
+      "from": 514,
+      "to": 606,
+      "type": "database"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Zero-broker outbox",
+      "items": [
+        "the enqueue rides the same DB transaction as the state change — no dual-write gap, no job lost on commit",
+        "the outbox row is the durability boundary; Redis only holds the queue and its dead-letter queue"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Delivery",
+      "items": [
+        "the claimed row is bumped into a BullMQ job keyed to the outbox id; consumers check-before-act, so a retried job never double-sends",
+        "the sender is an adapter: console under the offline switch, SMTP otherwise — selection, not refactor"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Failure + purge",
+      "items": [
+        "retries use capped exponential backoff; a poison job dead-letters and stays visible in the table and logs",
+        "the janitor sweeps expired sessions, verifications and reset codes on its own loop — never rotation history, never audit rows"
+      ]
+    }
+  ]
+}

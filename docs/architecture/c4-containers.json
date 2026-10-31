@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "beautifulnodejs Container Architecture",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "all",
+        "label": "All",
+        "focus": [
+          "api-clients",
+          "ingress",
+          "app-api",
+          "outbox-worker",
+          "postgres",
+          "bmq",
+          "mail-vendor"
+        ],
+        "note": "HTTP · WS · SSE through the ingress, the Fastify hexagon (slices + platform + shared), the outbox worker, Postgres and the mail vendor."
+      },
+      {
+        "id": "auth",
+        "label": "Auth",
+        "focus": [
+          "api-clients",
+          "ingress",
+          "app-api",
+          "postgres"
+        ],
+        "note": "Signup → verify code → gates → JWT 15m + rotating opaque refresh 720h; codes and sessions live in Postgres, tokens never do."
+      },
+      {
+        "id": "realtime",
+        "label": "Realtime",
+        "focus": [
+          "api-clients",
+          "ingress",
+          "app-api"
+        ],
+        "note": "WS /api/v1/ws?token= with close 4001 on failed auth; SSE flushes widget lifecycle events from the in-process EventBus hub."
+      },
+      {
+        "id": "ops",
+        "label": "Ops",
+        "focus": [
+          "ingress",
+          "app-api",
+          "outbox-worker",
+          "postgres",
+          "bmq"
+        ],
+        "note": "readyz = SELECT 1 via PgBouncer; migrations are a deploy step; the worker claims outbox rows and relays them into BullMQ."
+      }
+    ],
+    "output": "c4-containers.html"
+  },
+  "components": [
+    {
+      "id": "api-clients",
+      "type": "external",
+      "label": "API clients",
+      "sublabel": "browser · SSE · WS",
+      "pos": [
+        40,
+        280
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "ingress",
+      "type": "cloud",
+      "label": "Ingress",
+      "sublabel": "nginx · TLS :443",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "app-api",
+      "type": "backend",
+      "label": "beautifulnodejs api",
+      "sublabel": "Fastify · tsyringe root",
+      "pos": [
+        470,
+        280
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "outbox-worker",
+      "type": "backend",
+      "label": "Outbox worker",
+      "sublabel": "bin/worker.ts · BullMQ",
+      "pos": [
+        680,
+        280
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "pg Pool · PgBouncer · Drizzle",
+      "pos": [
+        675,
+        110
+      ],
+      "size": [
+        150,
+        60
+      ]
+    },
+    {
+      "id": "mail-vendor",
+      "type": "external",
+      "label": "Mail Vendor",
+      "sublabel": "SMTP · console",
+      "pos": [
+        900,
+        110
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "bmq",
+      "type": "messagebus",
+      "label": "Redis · BullMQ",
+      "sublabel": "queue · DLQ",
+      "pos": [
+        680,
+        430
+      ],
+      "size": [
+        140,
+        60
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "The runtime — PM2 or Kubernetes, stateless",
+      "wraps": [
+        "ingress",
+        "app-api",
+        "outbox-worker"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "The data plane",
+      "wraps": [
+        "postgres",
+        "mail-vendor"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "clients-to-ingress",
+      "from": "api-clients",
+      "to": "ingress",
+      "label": "HTTP · WS · SSE",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ingress-to-api",
+      "from": "ingress",
+      "to": "app-api",
+      "label": "route /api/v1"
+    },
+    {
+      "id": "api-to-db",
+      "from": "app-api",
+      "to": "postgres",
+      "label": "Drizzle · PgBouncer",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "via": [
+        [
+          540,
+          225
+        ],
+        [
+          750,
+          225
+        ]
+      ],
+      "labelAt": [
+        645,
+        217
+      ]
+    },
+    {
+      "id": "worker-to-db",
+      "from": "outbox-worker",
+      "to": "postgres",
+      "label": "claim outbox rows",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "labelDx": 62
+    },
+    {
+      "id": "worker-to-mail",
+      "from": "outbox-worker",
+      "to": "mail-vendor",
+      "label": "render + send",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "left",
+      "via": [
+        [
+          870,
+          310
+        ],
+        [
+          870,
+          140
+        ]
+      ],
+      "labelAt": [
+        870,
+        225
+      ]
+    },
+    {
+      "id": "worker-to-redis",
+      "from": "outbox-worker",
+      "to": "bmq",
+      "label": "relay BullMQ jobs",
+      "route": "straight",
+      "labelAt": [
+        820,
+        354
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Build",
+      "items": [
+        "src/features/* (slices) · src/platform/* · src/shared/* · src/gen/api",
+        "one image, two entrypoints: bin/api.ts + bin/worker.ts — stateless, PM2 or Kubernetes",
+        "the eslint drop-in at lints/eslint.config.mjs encodes the import law: domain I/O-free, slices never import slices"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Run",
+      "items": [
+        "durable side effects ride the BullMQ outbox worker — the DB outbox row, not the Redis job, is the durability boundary",
+        "migrations via drizzle-kit are a deploy step you control — never at server startup",
+        "readyz runs SELECT 1 through the PgBouncer-sized pool and gates every deploy; config is zod-parsed once at boot, fails closed"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Quality gates",
+      "items": [
+        "make ci: tsc --noEmit + eslint + vitest — a broken architecture contract is an automatic must fix in review",
+        "table-driven vitest: fake ports instead of real Redis/Postgres, no wall clock",
+        "auth ships: bcrypt over an HMAC-SHA256 pepper pre-hash · JWT 15m · rotating refresh 720h · audit logs"
+      ]
+    }
+  ]
+}
