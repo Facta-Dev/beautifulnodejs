@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <style>
+    .t { fill: #E2E8F0; }
+    .m { fill: #94A3B8; }
+    .a { fill: #5FA04E; }
+    .box { fill: #0F172A; stroke: #1E293B; stroke-width: 1.5; }
+    .card { fill: #0B1020; stroke: #1E293B; stroke-width: 1; }
+    .pillbg { fill: #0B1020; stroke: #5FA04E; stroke-width: 1.2; }
+    .chip { fill: #0F172A; stroke: #1E293B; stroke-width: 1; }
+    .lbl { font-size: 13px; }
+    .sub { font-size: 11px; }
+    .hdr { font-size: 12px; font-weight: 700; letter-spacing: 1px; fill: #94A3B8; }
+    .arr { stroke: #94A3B8; stroke-width: 1.5; fill: none; }
+    .gatel { stroke: #5FA04E; stroke-width: 1; opacity: 0.7; }
+  </style>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1080" height="560" rx="14" fill="#0B1020"/>
+
+  <!-- header -->
+  <text x="40" y="42" font-size="20" font-weight="700" class="a">Beautiful Node.js — architecture</text>
+  <text x="40" y="64" font-size="12" class="m">Fastify · TypeScript strict · Zod · tsyringe · pg + pg-pool · PgBouncer · Drizzle · BullMQ + Redis · Pino · OTel + Prometheus · PM2/K8s</text>
+  <rect x="806" y="24" width="234" height="26" rx="13" fill="#5FA04E"/>
+  <text x="923" y="41" font-size="11" font-weight="700" text-anchor="middle" fill="#0B1020">CONTRACTS NON-WAIVABLE</text>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
+    </marker>
+    <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5FA04E"/>
+    </marker>
+  </defs>
+
+  <!-- ===== ring boxes ===== -->
+  <!-- CLIENTS -->
+  <rect x="24" y="104" width="130" height="190" rx="10" class="box"/>
+  <text x="89" y="93" text-anchor="middle" class="hdr">CLIENTS</text>
+  <rect x="36" y="126" width="106" height="26" rx="13" class="card"/>
+  <text x="89" y="143" text-anchor="middle" font-size="12" class="t">HTTP · REST</text>
+  <rect x="36" y="168" width="106" height="26" rx="13" class="card"/>
+  <text x="89" y="185" text-anchor="middle" font-size="12" class="t">WS · SSE</text>
+  <rect x="36" y="210" width="106" height="26" rx="13" class="card"/>
+  <text x="89" y="227" text-anchor="middle" font-size="12" class="t">Prom scrape</text>
+  <text x="89" y="266" text-anchor="middle" font-size="11" class="m">/healthz · /readyz</text>
+
+  <!-- COMPOSITION -->
+  <rect x="178" y="104" width="160" height="190" rx="10" class="box"/>
+  <text x="258" y="93" text-anchor="middle" class="hdr">COMPOSITION</text>
+  <text x="192" y="140" font-size="12" class="t">src/bin/api.ts</text>
+  <text x="192" y="162" font-size="12" class="t">src/bin/worker.ts</text>
+  <text x="192" y="196" font-size="12" class="a">tsyringe root</text>
+  <text x="192" y="216" font-size="11" class="m">config: zod, once, at boot</text>
+  <text x="192" y="236" font-size="11" class="m">SIGTERM → stop()</text>
+  <text x="192" y="270" font-size="11" class="m">register*(app, Deps)</text>
+
+  <!-- SLICES -->
+  <rect x="362" y="104" width="300" height="190" rx="10" class="box"/>
+  <text x="512" y="93" text-anchor="middle" class="hdr">SLICES · src/features/*</text>
+  <text x="374" y="126" font-size="11" class="m">domain · ports · usecase · http · module</text>
+  <rect x="374" y="134" width="276" height="40" rx="8" class="card"/>
+  <text x="386" y="152" font-size="12" class="t">auth</text>
+  <text x="386" y="167" font-size="11" class="m">signup · session · password</text>
+  <rect x="374" y="182" width="276" height="40" rx="8" class="card"/>
+  <text x="386" y="200" font-size="12" class="t">widgets · realtime</text>
+  <text x="386" y="215" font-size="11" class="m">CRUD · ws · SSE</text>
+  <rect x="374" y="230" width="276" height="40" rx="8" class="card"/>
+  <text x="386" y="248" font-size="12" class="t">notifications</text>
+  <text x="386" y="263" font-size="11" class="m">http.ts · module.ts · outbox worker</text>
+  <text x="374" y="286" font-size="11" class="m">slices never import each other</text>
+
+  <!-- PORTS -->
+  <rect x="686" y="104" width="140" height="190" rx="10" class="box"/>
+  <text x="756" y="93" text-anchor="middle" class="hdr">PORTS</text>
+  <text x="698" y="140" font-size="12" class="t">ports.ts per slice</text>
+  <text x="698" y="168" font-size="11" class="m">interfaces defined</text>
+  <text x="698" y="184" font-size="11" class="m">by the consumer</text>
+  <text x="698" y="216" font-size="11" class="m">no consumer,</text>
+  <text x="698" y="232" font-size="11" class="m">no port (YAGNI)</text>
+  <text x="698" y="266" font-size="11" class="m">adapters implement</text>
+  <text x="698" y="282" font-size="11" class="m">them structurally</text>
+
+  <!-- DOMAIN (accented) -->
+  <rect x="850" y="104" width="206" height="190" rx="10" fill="#5FA04E" fill-opacity="0.14" stroke="#5FA04E" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="953" y="93" text-anchor="middle" class="hdr">DOMAIN</text>
+  <text x="862" y="140" font-size="12" class="t">domain.ts — pure TS</text>
+  <text x="862" y="168" font-size="11" class="m">types · invariants · errors</text>
+  <text x="862" y="196" font-size="11" class="m">I/O-free: never imports</text>
+  <text x="862" y="212" font-size="11" class="m">fastify, zod, tsyringe,</text>
+  <text x="862" y="228" font-size="11" class="m">drizzle, pg, bullmq,</text>
+  <text x="862" y="244" font-size="11" class="m">pino, prom-client, OTel</text>
+  <text x="862" y="272" font-size="11" class="a">#shared: apperr · rolex · idgen</text>
+
+  <!-- ===== flow arrows (inward) ===== -->
+  <line x1="154" y1="199" x2="170" y2="199" class="arr" marker-end="url(#ah)"/>
+  <line x1="338" y1="199" x2="354" y2="199" class="arr" marker-end="url(#ah)"/>
+  <line x1="662" y1="199" x2="678" y2="199" class="arr" marker-end="url(#ah)"/>
+  <line x1="826" y1="199" x2="842" y2="199" class="arr" marker-end="url(#ah)"/>
+
+  <!-- ===== gate pills on ring boundaries ===== -->
+  <line x1="166" y1="294" x2="166" y2="304" class="gatel"/>
+  <rect x="96" y="304" width="150" height="22" rx="11" class="pillbg"/>
+  <text x="171" y="319" text-anchor="middle" font-size="11" class="a">wired-here-only law</text>
+
+  <line x1="350" y1="294" x2="350" y2="304" class="gatel"/>
+  <rect x="280" y="304" width="140" height="22" rx="11" class="pillbg"/>
+  <text x="350" y="319" text-anchor="middle" font-size="11" class="a">register*() per slice</text>
+
+  <line x1="674" y1="294" x2="674" y2="304" class="gatel"/>
+  <rect x="604" y="304" width="140" height="22" rx="11" class="pillbg"/>
+  <text x="674" y="319" text-anchor="middle" font-size="11" class="a">consumer-defined</text>
+
+  <line x1="838" y1="294" x2="838" y2="304" class="gatel"/>
+  <rect x="758" y="304" width="160" height="22" rx="11" class="pillbg"/>
+  <text x="838" y="319" text-anchor="middle" font-size="11" class="a">no-restricted-imports</text>
+
+  <!-- ===== adapters row ===== -->
+  <!-- dashed adapters -> slices -->
+  <line x1="452" y1="346" x2="452" y2="298" stroke="#5FA04E" stroke-width="1.2" stroke-dasharray="4 3" fill="none" marker-end="url(#ahA)"/>
+  <line x1="647" y1="346" x2="647" y2="298" stroke="#5FA04E" stroke-width="1.2" stroke-dasharray="4 3" fill="none" marker-end="url(#ahA)"/>
+  <line x1="852" y1="346" x2="852" y2="298" stroke="#5FA04E" stroke-width="1.2" stroke-dasharray="4 3" fill="none" marker-end="url(#ahA)"/>
+
+  <rect x="362" y="346" width="180" height="52" rx="10" class="box"/>
+  <text x="374" y="366" font-size="12" class="t">Drizzle adapters</text>
+  <text x="374" y="384" font-size="11" class="m">queries.ts per slice</text>
+
+  <rect x="552" y="346" width="190" height="52" rx="10" class="box"/>
+  <text x="564" y="366" font-size="12" class="t">pg + pg-pool</text>
+  <text x="564" y="384" font-size="11" class="m">behind PgBouncer</text>
+
+  <rect x="752" y="346" width="200" height="52" rx="10" class="box"/>
+  <text x="764" y="366" font-size="12" class="t">BullMQ · Redis</text>
+  <text x="764" y="384" font-size="11" class="m">outbox worker · retries · DLQ</text>
+
+  <text x="40" y="330" font-size="11" class="a" font-weight="700">ADAPTERS</text>
+  <text x="40" y="350" font-size="11" class="m">mechanism names</text>
+  <text x="40" y="366" font-size="11" class="m">stop here — the</text>
+  <text x="40" y="382" font-size="11" class="m">domain imports</text>
+  <text x="40" y="398" font-size="11" class="m">none of them</text>
+
+  <!-- ===== CI gates ===== -->
+  <text x="40" y="468" font-size="12" font-weight="700" class="m">CI GATES</text>
+  <rect x="130" y="450" width="210" height="30" rx="15" class="chip"/>
+  <text x="235" y="469" text-anchor="middle" font-size="12" class="t">scripts/check-skill.py</text>
+  <rect x="356" y="450" width="210" height="30" rx="15" class="chip"/>
+  <text x="461" y="469" text-anchor="middle" font-size="12" class="t">scripts/check-lints.sh</text>
+  <rect x="582" y="450" width="228" height="30" rx="15" class="chip"/>
+  <text x="696" y="469" text-anchor="middle" font-size="12" class="t">scripts/check-examples.py</text>
+  <rect x="826" y="450" width="230" height="30" rx="15" class="chip"/>
+  <text x="941" y="469" text-anchor="middle" font-size="12" class="t">contracts: test_lints_contract</text>
+
+  <!-- footer -->
+  <text x="540" y="520" text-anchor="middle" font-size="12" class="m">Stateless services on PM2 or Kubernetes — pool sized for PgBouncer, migrations never run at startup, one error envelope,</text>
+  <text x="540" y="540" text-anchor="middle" font-size="12" class="m">Pino child loggers carry requestId + trace_id, OTel spans at the edges, Prometheus at the boundary. Dependencies point inward.</text>
+</svg>

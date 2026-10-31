@@ -38,6 +38,11 @@ the skill so the agent can consult the original reasoning when it needs to:
 
 Where the sources disagree, the skill picks a side and says why.
 
+<p align="center">
+  <img src="docs/architecture/overview.svg"
+       alt="Architecture overview: HTTP, WS and SSE clients flow inward through the composition root (src/bin/* with tsyringe), into feature slices, the consumer-defined ports they consume, and the I/O-free domain, with eslint no-restricted-imports gates on every boundary; adapters for Drizzle, pg and BullMQ sit beneath the slices; CI gates at the bottom">
+</p>
+
 ## What it changes
 
 Asked for a small semver-parsing library, an agent without the skill produced working
@@ -122,6 +127,27 @@ loop — is application code on this stack. Read
 `skills/nodejs-best-practices/references/backend-node-stack.md` first; it holds the
 slice layout, the framework-managed behaviors to leave alone, and the failure modes the
 lints catch.
+
+## What the libraries do and why
+
+The table above fixes one library per concern; this row explains it. The reasoning is
+the repo's own, condensed from the skill's stack digest
+(`skills/nodejs-best-practices/references/backend-node-stack.md`) and the skill text:
+
+| Library | Why this one | What it gives the stack |
+|---|---|---|
+| TypeScript, strict | `strict`, `noUncheckedIndexedAccess`, and `noImplicitOverride` are the floor the skills write against — the whole corpus (branded ids, discriminated unions, explicit return types) only pays off when the compiler is this sharp. | Invalid states become unrepresentable; the lints and review tiers assume it is on. |
+| Fastify | The handler contract is the shape the skill teaches: Fastify awaits the returned promise, so one code path answers, and routes are declared per slice in `module.ts` (`register*`). Express, NestJS, or Koa blur that path and are never used. | HTTP adapter logic stays in `http.ts`: decode (zod), call the use case, encode — one error envelope written once at the root. |
+| Zod | Untrusted input enters at the edges — wire bodies and querystrings in `http.ts`, config at boot. Zod parses both, failing closed with the field path before the domain ever sees the data. | A trust boundary the domain can rely on; `domain.ts` re-checks invariants because adapters and tests call it directly. |
+| tsyringe | Use cases receive dependencies; they never construct adapters. tsyringe tokens keep that constructor-level law cheap, and `register*()` per slice wires — only at `src/bin/*`. | Slices point at ports, not implementations; the composition root is the one place anything is built. |
+| pg + pg-pool | The Postgres driver and its pool are the mechanism the adapters own; the pool is the sizing knob that has to match the deployment topology. | `postgres.ts` (pool/Drizzle-backed) is the only place the driver appears, per slice. |
+| PgBouncer | A per-process pool sized for Postgres exceeds the shared pool the moment replicas arrive — the digest names this as a quiet failure mode. | Total connections across replicas stay under PgBouncer's pool; `/readyz` (`SELECT 1`, 2s) surfaces drift at deploy time. |
+| Drizzle ORM | Schema and migrations pair per slice, queries are typed per slice (the sqlc analog), and parameterization is the default — hand-written SQL still stays parameterized. | `queries.ts` + migrations ride beside the slice; the mechanism (schema, sql, migrator) never leaks into use cases. |
+| BullMQ + Redis | The only sanctioned durable side effect: a job survives restarts and retries where an in-process timer or `setTimeout` loses the work. Retries and dead-lettering come with the queue. | Durable side effects go through the outbox worker — an outbox row in the same DB transaction closes the enqueue-only and commit-only failure modes. |
+| Pino | Structured JSON logging with child loggers is the whole logging law; `console.log` on the request path is a planted violation in the evals. | Lines carry `requestId` + `trace_id`; throw rather than log-and-rethrow, so each stack is logged exactly once. |
+| OpenTelemetry | The seams are documented: fastify instrumentation at the root, the pg pool hook, queue processor spans. No slice code changes, no spans in the domain. | End-to-end traces that follow the composition root's flow without reaching into slices. |
+| Prometheus | Metrics live at the boundary — a route, queue, or DB hook — never sprinkled through slice code. | One scrape surface, fed by `/healthz`-style edges, on a stateless service. |
+| PM2 / Kubernetes | The service is stateless and stops on one signal: SIGTERM/SIGINT run `stop()` (abort the worker, `app.close()`, `pool.end()`), so either host works. | Boring deploys: migrations never run at startup, health checks carry the deploy signal. |
 
 ## The architecture contract
 
@@ -397,6 +423,8 @@ beautifulnodejs/
 │   └── package-openai-plugin.py   builds the ChatGPT / Codex directory ZIP
 ├── examples/
 │   └── review-inventory.md    a real review report
+├── docs/
+│   └── architecture/          the overview.svg the README embeds, plus its workflow, sequence, C4, dataflow, and lifecycle diagram sources
 ├── tests/                     unit, contract, integration, and e2e checks
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
