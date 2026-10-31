@@ -1,0 +1,17 @@
+schema_version: "1.1"
+name: review-notifications-slice
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  REVIEW.md is a prioritized review of the notifications slice that does not modify the
+  code. It ranks architecture contracts first: the zod import in domain.ts, the
+  cross-slice import of billing's domain, the pg adapter and Pool imported and stored by
+  the use case, and the error envelope written inside the route instead of one
+  setErrorHandler path. It flags the bare @ts-expect-error in http.ts and the
+  eslint-disable no-console in worker.ts loudly as waived gates, and separately catches
+  the floating promise in handle(), the swallowed catch in the route, the
+  setTimeout-based retry next to the BullMQ worker, the Service weasel name, the
+  missing injected clock, and the wall-clock reads. Each finding cites a file:line and
+  a named rule, shows the fix as a short code change, groups repeats, treats the
+  schema-validated route body and typed handler as correct Fastify idioms, and ends
+  with a "What's already good" section.

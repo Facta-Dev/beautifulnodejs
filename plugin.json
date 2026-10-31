@@ -1,0 +1,55 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "beautiful-nodejs",
+  "version": "0.1.0",
+  "description": "Write, review, port, and enforce idiomatic Node.js + TypeScript: three skills distilled from the Google TypeScript Style Guide, Effective TypeScript, Node.js Best Practices, TypeScript Deep Dive, and the facta backend-node handbook, plus a drop-in eslint config.",
+  "author": {
+    "name": "Morgan Linton",
+    "url": "https://github.com/morganlinton"
+  },
+  "homepage": "https://github.com/Facta-Dev/beautifulnodejs",
+  "repository": "https://github.com/Facta-Dev/beautifulnodejs",
+  "license": "MIT",
+  "keywords": [
+    "api-design",
+    "best-practices",
+    "code-review",
+    "eslint",
+    "migration",
+    "nodejs",
+    "porting",
+    "skill",
+    "style-guide",
+    "typescript"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Beautiful Node.js",
+        "shortDescription": "Write, review, port Node.js",
+        "longDescription": "Three skills for Node.js + TypeScript developers, distilled from the Google TypeScript Style Guide, Effective TypeScript, Node.js Best Practices, TypeScript Deep Dive, and the facta backend-node handbook.\n\nnodejs-best-practices guides new Node.js and TypeScript code: the strict tsconfig set, discriminated unions and branded ids that make invalid states unrepresentable, async discipline on the event loop, the one-error-envelope error path, BullMQ outbox for durable work, Drizzle with paired schema and migrations, Pino for structured logging, and the unbreakable hexagonal + vertical-slicing architecture contract.\n\nnodejs-review reviews a file, a slice, a module, or a diff and returns a prioritized report. A broken architecture contract ranks above everything. Every finding cites a file and line, the rule it breaks, and the smallest fix.\n\nnodejs-port ports Python, Go, Rust, C, or legacy JavaScript to idiomatic TypeScript with the same behavior. It ports the original tests first and writes a PORTING.md that lists every deliberate difference.\n\nThe skills contain instructions and reference text only. They make no network calls and collect no data. When a Node.js toolchain is available, the skills run tsc, eslint, and vitest on your project; without one, they work from the code alone. A drop-in eslint config is available in the GitHub repository.",
+        "developerName": "Morgan Linton",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Write idiomatic TypeScript",
+          "Review Node.js code with cited rules",
+          "Port code to TypeScript with the same behavior"
+        ],
+        "websiteURL": "https://github.com/Facta-Dev/beautifulnodejs",
+        "supportURL": "https://github.com/Facta-Dev/beautifulnodejs/issues",
+        "privacyPolicyURL": "https://github.com/Facta-Dev/beautifulnodejs/blob/main/PRIVACY.md",
+        "defaultPrompt": [
+          "Review this TypeScript service and list what to fix first",
+          "Port this Python module to idiomatic TypeScript",
+          "Write a Fastify route with validation and typed errors"
+        ],
+        "brandColor": "#339933",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "publication": {
+        "release_notes": "Initial release: three skills for Node.js + TypeScript with a proven eslint config."
+      }
+    }
+  }
+}

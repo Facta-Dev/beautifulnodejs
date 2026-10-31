@@ -1,0 +1,17 @@
+schema_version: "1.1"
+name: port-python-inventory
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  An ESM TypeScript package that passes npx tsc --noEmit with strict settings, npx eslint,
+  and ported versions of every test in test_inventory.py, written table-driven with one
+  row per Python test or subTest case. The exception hierarchy becomes one exported
+  discriminated error union with a variant per exception class carrying the same data
+  (line numbers for ParseError, the sku and line for DuplicateSku, the sku for UnknownSku,
+  the sku and amount for BadAmount, and sku, amount, and available for InsufficientStock);
+  find_item's None becomes an explicit Item | null. Negative quantities and reorder
+  thresholds are rejected at the parse boundary so the Item type can never hold them.
+  Behavior matches Python on the edge cases: line-number parse errors, duplicate Skus,
+  case-sensitive sku lookups, low_stock inclusivity and definition order, zero-stock
+  items, and non-mutating withdraw. PORTING.md maps the API and tests and documents every
+  exported error variant.

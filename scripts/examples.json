@@ -1,0 +1,68 @@
+{
+  "_comment": "Anchor ledger for scripts/check-examples.py. Every ts block in the docs is either compiled here (its first_line pinning its position) or skipped with a reason naming what it would need — the generated project installs nothing, and the domain is I/O-free.",
+  "files": {
+    "README.md": {
+      "blocks": {
+        "1": { "first_line": "// Without the skill" },
+        "2": { "first_line": "// With the skill" }
+      }
+    },
+    "examples/review-inventory.md": {
+      "blocks": {
+        "1": {
+          "first_line": "export type ProviderPayload = { readonly id: string; readonly channels: readonly string[] };",
+          "skip": "fragment of the worked review's buggy module: it leans on Channel, Notification and toNotificationId, which the surrounding findings replace; checked by hand against the review, not compiled"
+        },
+        "2": {
+          "first_line": "import type { NotificationSender } from \"./ports.js\";",
+          "skip": "fragment of the worked review's buggy module: the './ports.js' file is the review's own context and the generated project has no files; checked by hand against the review, not compiled"
+        },
+        "3": {
+          "first_line": "export interface BillingPort {"
+        },
+        "4": {
+          "first_line": "app.setErrorHandler((err, request, reply) => {",
+          "skip": "fragment of the worked review's buggy module: it needs the Fastify app instance and its error-envelope helpers; checked by hand against the hexagonal architecture"
+        },
+        "5": {
+          "first_line": "await this.outbox.relay(job);",
+          "skip": "fragment of the worked review's buggy module: a floating await on this.outbox with no enclosing method; checked by hand against the outbox-worker pattern"
+        },
+        "6": {
+          "first_line": "export type SendError =",
+          "skip": "fragment of the worked review's buggy module: SendError's ok variant names NotificationId, defined outside the fragment; checked by hand against the review, not compiled"
+        },
+        "7": {
+          "first_line": "const logger = baseLogger.child({ requestId, trace_id: traceId });",
+          "skip": "fragment of the worked review's buggy module: it needs a pino base logger carrying requestId and trace_id; checked by hand against the structured-logging rule"
+        },
+        "8": {
+          "first_line": "const primary = notification.channels.at(0);",
+          "skip": "fragment of the worked review's buggy module: notification is the review's subject variable, and noUncheckedIndexedAccess flags the .at(0) hole; checked by hand against the review"
+        },
+        "9": { "first_line": "export type NotifyPriority = \"now\" | \"digest\";" },
+        "10": {
+          "first_line": "describe.each([",
+          "skip": "fragment of the worked review's buggy module: it needs vitest's describe/it/expect globals; the generated project installs nothing (checked by hand against the table-driven-tests rule)"
+        }
+      }
+    },
+    "skills/nodejs-best-practices/SKILL.md": {
+      "blocks": {
+        "2": { "first_line": "// A result shape whose failure is a value, not a thrown string." },
+        "3": { "first_line": "// Bounded concurrency: map 500 ids with 20 in flight, errors carry the id." },
+        "4": { "first_line": "// The one error-shape contract: every boundary carries a stable code, and the" },
+        "5": { "first_line": "// Outbox shapes — the DB row, not the queue job, is what must not be lost." },
+        "6": {
+          "first_line": "// src/features/notifications/ports.ts — the interface the USE CASE needs, written by it",
+          "skip": "the port file imports its slice's ./domain.js by relative path; the generated project has no files (checked by hand against the hexagonal architecture)"
+        }
+      }
+    },
+    "skills/nodejs-port/SKILL.md": {
+      "blocks": {
+        "1": { "first_line": "interface Item {" }
+      }
+    }
+  }
+}

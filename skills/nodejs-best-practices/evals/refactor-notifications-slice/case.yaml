@@ -1,0 +1,19 @@
+schema_version: "1.1"
+name: refactor-notifications-slice
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  A refactored notifications slice (src/features/notifications/*.ts) that keeps
+  the public behavior but fixes the architecture-contract violations: the zod
+  import removed from domain.ts (the wire schema moves to http.ts and the
+  status becomes the closed union), the `#features/billing/domain.js`
+  cross-slice import removed (a port or a #shared promotion instead), the
+  concrete PgNotificationStore replaced by the NotificationStore port as the
+  use case's field type, pg error mapping in the adapter only (on error codes,
+  not messages), the swallow catches gone, one error envelope (the routes
+  throw typed errors and the composition root's error handler renders), Pino
+  instead of console.log, durable work via the BullMQ outbox worker instead of
+  setInterval, no eslint-disable or @ts-expect-error mutes left, and the
+  eslint.config.mjs rules intact (none deleted). `npx tsc --noEmit` and
+  `npx eslint .` are clean. CHANGES.md lists the changes with a one-line
+  reason each.

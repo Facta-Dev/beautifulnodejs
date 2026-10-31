@@ -1,0 +1,29 @@
+{
+  "name": "beautiful-nodejs",
+  "version": "0.1.0",
+  "description": "Write, review, port, and enforce idiomatic Node.js + TypeScript: three skills distilled from the Google TypeScript Style Guide, Effective TypeScript, Node.js Best Practices, TypeScript Deep Dive, and the facta backend-node handbook, plus a drop-in eslint config.",
+  "license": "MIT",
+  "author": {
+    "name": "Morgan Linton",
+    "url": "https://github.com/morganlinton"
+  },
+  "homepage": "https://github.com/Facta-Dev/beautifulnodejs",
+  "repository": "https://github.com/Facta-Dev/beautifulnodejs",
+  "keywords": [
+    "api-design",
+    "best-practices",
+    "code-review",
+    "eslint",
+    "migration",
+    "nodejs",
+    "porting",
+    "skill",
+    "style-guide",
+    "typescript"
+  ],
+  "skills": [
+    "./skills/nodejs-best-practices",
+    "./skills/nodejs-port",
+    "./skills/nodejs-review"
+  ]
+}

@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: semver-range-library
+expected_outcome: |
+  A dependency-free TypeScript library (src/lib.ts plus an ESM package.json)
+  that parses semver 2.0 version strings (including prerelease and build
+  metadata), parses simple ranges (^, ~, and exact), answers satisfies() and
+  compares by semver precedence (prerelease sorts before the release; build
+  metadata is ignored for ordering). The public API follows the type rules:
+  explicit return types on every export, no any in shipped types, a
+  discriminated error type exported and returned instead of thrown strings,
+  versions and ranges modeled so an invalid state is unrepresentable, table-
+  driven tests with one case row per edge case (prerelease precedence, build
+  metadata, whitespace, leading zeros, missing parts), and failure modes
+  documented on the exports.
