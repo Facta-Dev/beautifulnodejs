@@ -5576,10 +5576,12 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="card">
         <div class="card-header">
           <div class="card-dot rose"></div>
-          <h3>Quality gates</h3>
+          <h3>Quality gates — the CI contract pipeline</h3>
         </div>
         <ul>
-          <li>make ci: tsc --noEmit + eslint + vitest — a broken architecture contract is an automatic must fix in review</li>
+          <li>.github/workflows/check.yml is the gate chain: job &#39;lints&#39; runs scripts/check-lints.sh (proves all 38 pinned eslint rules fire, config byte-identical to the drop-in) · job &#39;tests&#39; runs tests/contracts/ (the unbreakable-clause pins) · job &#39;examples&#39; compiles every doc example with tsc</li>
+          <li>broken architecture contract = automatic Must fix in review: &#39;They can never be waived, and the fix is re-cutting the layout, not weakening the gate.&#39;</li>
+          <li>eslint-disable / @ts-expect-error muting a gate, or a lint deleted on the diff, is flagged loudly — muted gates hide real violations</li>
           <li>table-driven vitest: fake ports instead of real Redis/Postgres, no wall clock</li>
           <li>auth ships: bcrypt over an HMAC-SHA256 pepper pre-hash · JWT 15m · rotating refresh 720h · audit logs</li>
         </ul>

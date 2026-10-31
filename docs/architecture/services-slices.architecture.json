@@ -3,6 +3,7 @@
   "diagram_type": "architecture",
   "meta": {
     "title": "beautifulnodejs Services — Feature Slices",
+    "subtitle": "The hexagon with its contract gates on the rings: eslint no-restricted-imports, the proven-fire harness, and the contracts tests make the walls red before review",
     "quality_profile": "showcase",
     "output": "services-slices.architecture.html"
   },
@@ -137,14 +138,14 @@
   "boundaries": [
     {
       "kind": "region",
-      "label": "Composition root",
+      "label": "Composition root — wired-here-only law",
       "wraps": [
         "root"
       ]
     },
     {
-      "kind": "region",
-      "label": "Feature slices",
+      "kind": "security-group",
+      "label": "Wall: no #features/* cross-imports — eslint no-restricted-imports",
       "wraps": [
         "auth",
         "widgets"
@@ -152,7 +153,7 @@
     },
     {
       "kind": "region",
-      "label": "Platform",
+      "label": "Platform — ports + domain only",
       "wraps": [
         "platform",
         "drizzle",
@@ -162,7 +163,7 @@
     },
     {
       "kind": "region",
-      "label": "Kernel + durable state",
+      "label": "Zero-I/O wall: adapters own pg · BullMQ — the domain imports none",
       "wraps": [
         "shared",
         "queue"
@@ -256,6 +257,15 @@
         "one root: bin/api.ts + bin/worker.ts build concrete adapters, register them under injection tokens, validate config once",
         "register*(app, Deps) is each slice's whole wiring contract — no container.resolve() inside slices",
         "the domain is I/O-free (no fastify/zod/tsyringe/drizzle/pg/bullmq/pino) — eslint no-restricted-imports makes it red before review"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "The contract gates (machine-enforced)",
+      "items": [
+        "eslint no-restricted-imports groups on every ring above: group 1 the domain is I/O-free · group 2 slices never import #features/* · group 3 use cases touch ports + domain only — behind tsconfig strict + noUncheckedIndexedAccess",
+        "lints/check proves the gates fire: scripts/check-lints.sh shows all 38 pinned rules red on their marked line, with clean.ts staying quiet",
+        "CI 'tests' runs tests/contracts/ — a deleted lint or a muted gate (eslint-disable / @ts-expect-error) fails the build, so the contracts ship unbreakable and non-waivable"
       ]
     },
     {
