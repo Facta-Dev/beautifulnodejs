@@ -517,6 +517,21 @@ original. Read the originals for the full reasoning.
 The skill text, the digests, and the checkers in this repository are MIT licensed (see
 [LICENSE](LICENSE)).
 
+## Siblings
+
+Beautiful Node.js is part of the Beautiful series for the facta playbooks:
+[beautiful-j2ee](https://github.com/Facta-Dev/beautiful-j2ee),
+[beautifulandroid](https://github.com/Facta-Dev/beautifulandroid),
+[beautifulcli](https://github.com/Facta-Dev/beautifulcli),
+[beautifulextension](https://github.com/Facta-Dev/beautifulextension),
+[beautifulgo](https://github.com/Facta-Dev/beautifulgo),
+[beautifulios](https://github.com/Facta-Dev/beautifulios),
+[beautifulpython](https://github.com/Facta-Dev/beautifulpython),
+[beautifulqt](https://github.com/Facta-Dev/beautifulqt),
+[beautifulreact](https://github.com/Facta-Dev/beautifulreact),
+[beautifulreactnative](https://github.com/Facta-Dev/beautifulreactnative),
+[beautifulrust](https://github.com/Facta-Dev/beautifulrust).
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
