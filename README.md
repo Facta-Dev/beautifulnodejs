@@ -432,6 +432,23 @@ beautifulnodejs/
 └── README.md
 ```
 
+## Architecture diagrams
+
+The repository ships eight [Archify](https://github.com/tt-a1i/archify) diagrams under
+[`docs/architecture/`](docs/architecture/README.md), each a standalone HTML page you can
+open, explore and share; the `overview.svg` above is the visual summary.
+
+| Diagram | What it shows |
+|---|---|
+| [c4-containers](docs/architecture/c4-containers.html) | Clients, ingress, the Fastify API, the outbox worker, Postgres, Redis/BullMQ and the mail vendor |
+| [services-slices](docs/architecture/services-slices.architecture.html) | The hexagon inside the API: feature slices, platform, shared kernel, Drizzle adapters and the ESLint walls |
+| [auth-algorithm](docs/architecture/auth-algorithm.workflow.html) | Signup, code, verify and the password-first gates with JWT and rotating refresh |
+| [outbox-algorithm](docs/architecture/outbox-algorithm.workflow.html) | The state + outbox row in one transaction, the BullMQ relay and the dead-letter path |
+| [auth-sequence](docs/architecture/auth-sequence.sequence.html) | The signup, code-delivery and login chain through the BullMQ outbox worker |
+| [outbox-sequence](docs/architecture/outbox-sequence.sequence.html) | Enqueue, claim, relay, deliver, settle and the janitor purge |
+| [database-dataflow](docs/architecture/database-dataflow.dataflow.html) | Clients → use cases → Postgres → outbox rows → BullMQ → the mail sender |
+| [runtime-lifecycle](docs/architecture/runtime-lifecycle.lifecycle.html) | Config boot, wiring, serve, readyz and the 401/403 and failure endings |
+
 ## Testing the skills
 
 `skills/nodejs-best-practices/evals/` holds two test cases in the layout `claude plugin
