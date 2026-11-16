@@ -234,6 +234,22 @@ bash scripts/check-lints.sh
 It fails if a rule stops firing, if something unexpected fires, or if the check copy of
 the config drifts from `lints/eslint.config.mjs`.
 
+## Agent kit (Claude Code)
+
+This repo carries the `{kit}` kit plane from
+[`ai-coding-playbook`](https://github.com/Facta-Dev/ai-coding-playbook):
+`.claude/agents`, `.claude/skills`, `.claude/commands`, and the
+`model-routing:ollama` block in `CLAUDE.md`.
+
+Verify or repair the wiring from the playbook checkout:
+
+```
+bash ai-coding-playbook/scripts/claude-kit/configure-repo.sh . --kit={kit} --check
+```
+
+`configure-repo.sh` is idempotent, never deletes, and backs up
+`.claude/settings.json` under `.claude/backups/` before any merge.
+
 ## Install
 
 Each skill is a folder under `skills/`: `nodejs-best-practices/`, `nodejs-review/`, and
