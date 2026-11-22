@@ -1,0 +1,1827 @@
+{
+  "communities": {
+    "0": [
+      "scripts_check_skill",
+      "scripts_check_skill_check_repo",
+      "scripts_check_skill_checker",
+      "scripts_check_skill_checker_add",
+      "scripts_check_skill_checker_check",
+      "scripts_check_skill_checker_check_changelog",
+      "scripts_check_skill_checker_check_doc_links",
+      "scripts_check_skill_checker_check_eval_case",
+      "scripts_check_skill_checker_check_evals",
+      "scripts_check_skill_checker_check_grader_file",
+      "scripts_check_skill_checker_check_graders",
+      "scripts_check_skill_checker_check_openai_icon",
+      "scripts_check_skill_checker_check_openai_interface",
+      "scripts_check_skill_checker_check_orphans",
+      "scripts_check_skill_checker_check_place_files",
+      "scripts_check_skill_checker_check_plugin_files",
+      "scripts_check_skill_checker_check_portable_plugin",
+      "scripts_check_skill_checker_check_relative_url",
+      "scripts_check_skill_checker_check_skill",
+      "scripts_check_skill_checker_init",
+      "scripts_check_skill_checker_load_frontmatter",
+      "scripts_check_skill_checker_load_json",
+      "scripts_check_skill_checker_load_yaml",
+      "scripts_check_skill_checker_loc",
+      "scripts_check_skill_checker_read",
+      "scripts_check_skill_checker_reference_hit",
+      "scripts_check_skill_checker_skill_dirs",
+      "scripts_check_skill_fold_block",
+      "scripts_check_skill_format_problem",
+      "scripts_check_skill_is_relative",
+      "scripts_check_skill_json_key_line",
+      "scripts_check_skill_main",
+      "scripts_check_skill_normalize_url",
+      "scripts_check_skill_parse_quoted",
+      "scripts_check_skill_parse_yaml",
+      "scripts_check_skill_png_size",
+      "scripts_check_skill_problem",
+      "scripts_check_skill_problems_to_json",
+      "scripts_check_skill_py_any",
+      "scripts_check_skill_py_exception",
+      "scripts_check_skill_py_path",
+      "scripts_check_skill_rationale_101",
+      "scripts_check_skill_rationale_1145",
+      "scripts_check_skill_rel",
+      "scripts_check_skill_split_flow",
+      "scripts_check_skill_split_frontmatter",
+      "scripts_check_skill_strip_comment",
+      "scripts_check_skill_summary_line",
+      "scripts_check_skill_yamlerror",
+      "scripts_check_skill_yamlerror_init",
+      "scripts_check_skill_yamlparser",
+      "scripts_check_skill_yamlparser_indent",
+      "scripts_check_skill_yamlparser_init",
+      "scripts_check_skill_yamlparser_is_empty",
+      "scripts_check_skill_yamlparser_parse",
+      "scripts_check_skill_yamlparser_parse_block",
+      "scripts_check_skill_yamlparser_parse_flow_map",
+      "scripts_check_skill_yamlparser_parse_flow_seq",
+      "scripts_check_skill_yamlparser_parse_map",
+      "scripts_check_skill_yamlparser_parse_scalar",
+      "scripts_check_skill_yamlparser_parse_seq",
+      "scripts_check_skill_yamlparser_parse_value",
+      "scripts_check_skill_yamlparser_skip_empty",
+      "scripts_check_skill_yamlparser_split_key"
+    ],
+    "1": [
+      "tests_contracts_test_examples_ledger",
+      "tests_contracts_test_examples_ledger_ledger_data",
+      "tests_contracts_test_examples_ledger_ledger_paths",
+      "tests_contracts_test_examples_ledger_ledger_skip_count",
+      "tests_contracts_test_examples_ledger_ledgeragrees",
+      "tests_contracts_test_examples_ledger_ledgeragrees_test_checker_skipped_count_equals_ledger",
+      "tests_contracts_test_examples_ledger_ledgershape",
+      "tests_contracts_test_examples_ledger_ledgershape_test_every_ledgered_path_exists_on_disk",
+      "tests_contracts_test_examples_ledger_ledgershape_test_every_skip_has_a_nonempty_reason",
+      "tests_contracts_test_examples_ledger_ledgershape_test_is_json_object_with_files_mapping",
+      "tests_contracts_test_examples_ledger_rationale_25",
+      "tests_contracts_test_examples_ledger_rationale_31",
+      "tests_contracts_test_examples_ledger_rationale_73",
+      "tests_integration_test_repo_gates_inproc",
+      "tests_integration_test_repo_gates_inproc_packagetests",
+      "tests_integration_test_repo_gates_inproc_packagetests_build",
+      "tests_integration_test_repo_gates_inproc_packagetests_setupclass",
+      "tests_integration_test_repo_gates_inproc_packagetests_test_package_holds_manifest_skills_and_icon",
+      "tests_integration_test_repo_gates_inproc_packagetests_test_package_is_reproducible",
+      "tests_integration_test_repo_gates_inproc_packagetests_test_package_leaves_out_evals",
+      "tests_integration_test_repo_gates_inproc_rationale_53",
+      "tests_integration_test_repo_gates_inproc_repogates",
+      "tests_integration_test_repo_gates_inproc_repogates_test_check_examples_zero_errors",
+      "tests_integration_test_repo_gates_inproc_repogates_test_check_skill_zero_errors",
+      "tests_support",
+      "tests_support_load_script",
+      "tests_support_rationale_1",
+      "tests_support_rationale_13",
+      "tests_unit_test_check_examples_unit",
+      "tests_unit_test_check_examples_unit_fallbacktest",
+      "tests_unit_test_check_examples_unit_fallbacktest_test_balanced_bash_quotes_pass",
+      "tests_unit_test_check_examples_unit_fallbacktest_test_balanced_block_is_quiet",
+      "tests_unit_test_check_examples_unit_fallbacktest_test_bash_quote_imbalance_is_reported",
+      "tests_unit_test_check_examples_unit_fallbacktest_test_string_with_brackets_does_not_confuse_the_scan",
+      "tests_unit_test_check_examples_unit_fallbacktest_test_unbalanced_ts_block_is_a_problem",
+      "tests_unit_test_check_examples_unit_fallbacktest_test_unterminated_string_is_reported",
+      "tests_unit_test_check_examples_unit_findblockstest",
+      "tests_unit_test_check_examples_unit_findblockstest_test_bash_blocks_are_extracted_for_quote_sanity",
+      "tests_unit_test_check_examples_unit_findblockstest_test_dedents_indented_blocks",
+      "tests_unit_test_check_examples_unit_findblockstest_test_finds_ts_and_bash_blocks",
+      "tests_unit_test_check_examples_unit_findblockstest_test_ignores_ts_fences_nested_in_other_blocks",
+      "tests_unit_test_check_examples_unit_findblockstest_test_skips_eval_fixtures",
+      "tests_unit_test_check_examples_unit_findblockstest_test_typescript_fences_count_as_ts",
+      "tests_unit_test_check_examples_unit_harnesstest",
+      "tests_unit_test_check_examples_unit_harnesstest_apply",
+      "tests_unit_test_check_examples_unit_harnesstest_test_block_spec_array_is_a_problem",
+      "tests_unit_test_check_examples_unit_harnesstest_test_first_line_mismatch_reports_drift_at_the_block",
+      "tests_unit_test_check_examples_unit_harnesstest_test_malformed_ledger_files_list_is_a_problem",
+      "tests_unit_test_check_examples_unit_harnesstest_test_skip_needs_a_reason",
+      "tests_unit_test_check_examples_unit_harnesstest_test_skip_with_reason_is_not_an_error",
+      "tests_unit_test_check_examples_unit_harnesstest_test_template_and_prelude_are_attached",
+      "tests_unit_test_check_examples_unit_harnesstest_test_template_without_code_slot_is_an_error",
+      "tests_unit_test_check_examples_unit_harnesstest_test_unknown_block_and_file_are_errors",
+      "tests_unit_test_check_examples_unit_mappingtest",
+      "tests_unit_test_check_examples_unit_mappingtest_test_each_fragment_becomes_a_module",
+      "tests_unit_test_check_examples_unit_mappingtest_test_harness_line_errors_name_the_harness",
+      "tests_unit_test_check_examples_unit_mappingtest_test_rendered_lines_map_back_to_markdown_and_harness",
+      "tests_unit_test_check_examples_unit_mappingtest_test_tsc_errors_map_to_markdown_lines",
+      "tests_unit_test_check_examples_unit_repotest",
+      "tests_unit_test_check_examples_unit_repotest_blocks",
+      "tests_unit_test_check_examples_unit_repotest_setup",
+      "tests_unit_test_check_examples_unit_repotest_teardown",
+      "tests_unit_test_check_skill_unit_checkskilltests_setupclass"
+    ],
+    "2": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_domain",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_domain_assertresendable",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_domain_notification",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_domain_notificationstatus",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_domain_notificationstatusschema",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_domain_parsestatus",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_http",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_http_createnotificationbody",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_http_registernotifications",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports_notificationstore",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports_notificationstore_listforuser",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports_notificationstore_marksent",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports_notificationstore_save",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports_outboxpublisher",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_ports_outboxpublisher_append",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres_closepool",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore_listforuser",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore_marksent",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore_save",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_postgres_pool",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase_isbillinglocked",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase_notificationsusecase",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase_notificationsusecase_constructor",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase_notificationsusecase_enqueue",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase_notificationsusecase_list",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_usecase_store",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_billing_domain",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_billing_domain_cents",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_billing_domain_surchargefor",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_domain",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_domain_notification",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_domain_notificationschema",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_domain_sendnotificationcommand",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_domain_sendnotificationerror",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_http",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_http_codefor",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_http_detailfor",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_http_registernotificationroutes",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_http_sendbody",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_http_sendbodyschema",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_ports",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_ports_clock",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_ports_clock_nowiso",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_ports_notificationstore",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_ports_notificationstore_countsince",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_ports_notificationstore_save",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_postgres",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore_constructor",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore_countsince",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_postgres_pgnotificationstore_save",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_usecase",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_usecase_notificationservice",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_usecase_notificationservice_constructor",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_usecase_notificationservice_handle",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_usecase_notificationservice_nextnotificationid"
+    ],
+    "3": [
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_badamount",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_badamount_init",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_duplicatesku",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_duplicatesku_init",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_find_item",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_insufficientstock",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_insufficientstock_init",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_inventoryerror",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_item",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_item_init",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_item_repr",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_low_stock",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_parse_inventory",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_parse_level",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_parseerror",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_parseerror_init",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_py_exception",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_1",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_107",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_112",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_117",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_15",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_74",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_rationale_99",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_total_units",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_unknownsku",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_unknownsku_init",
+      "skills_nodejs_port_evals_port_python_inventory_files_inventory_withdraw",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest_test_duplicate_reported_as_duplicate",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest_test_empty_input",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest_test_ignores_blank_and_comment_lines",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest_test_parse_errors_report_line_numbers",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest_test_parses_fields",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_parseinventorytest_test_skus_are_case_sensitive",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_setup",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_test_find_item",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_test_find_item_is_case_sensitive",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_test_find_item_missing_returns_none",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_test_low_stock_inclusive_in_definition_order",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_test_low_stock_on_empty_inventory",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_querytest_test_total_units",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_rationale_1",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_setup",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_all_errors_share_the_base_class",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_withdraw_does_not_mutate",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_withdraw_more_than_available_reports_data",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_withdraw_reduces_quantity",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_withdraw_rejects_non_positive_amounts",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_withdraw_to_zero_is_allowed",
+      "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest_test_withdraw_unknown_sku"
+    ],
+    "4": [
+      "tests_support_write",
+      "tests_unit_test_check_examples_unit_domainwalltest",
+      "tests_unit_test_check_examples_unit_domainwalltest_test_node_builtin_imports_stay_allowed",
+      "tests_unit_test_check_examples_unit_domainwalltest_test_stack_import_in_a_compiling_block_is_rejected",
+      "tests_unit_test_check_examples_unit_endtoendtest",
+      "tests_unit_test_check_examples_unit_endtoendtest_test_a_broken_example_reports_its_markdown_line",
+      "tests_unit_test_check_examples_unit_endtoendtest_test_a_fragment_compiles_with_its_template",
+      "tests_unit_test_check_examples_unit_endtoendtest_test_duplicate_names_across_blocks_do_not_collide",
+      "tests_unit_test_check_examples_unit_endtoendtest_test_require_toolchain_fails_loudly_without_tsc",
+      "tests_unit_test_check_examples_unit_repotest_harness",
+      "tests_unit_test_check_skill_unit",
+      "tests_unit_test_check_skill_unit_add_portable_plugin",
+      "tests_unit_test_check_skill_unit_build_valid_repo",
+      "tests_unit_test_check_skill_unit_checkskilltests",
+      "tests_unit_test_check_skill_unit_checkskilltests_assert_has_error",
+      "tests_unit_test_check_skill_unit_checkskilltests_run_root",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_bad_name",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_broken_link",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_broken_references_mention",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_case_name_must_match_folder",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_cli_help",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_empty_grader_body",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_gap_in_grader_numbers",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_invalid_semver",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_long_description",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_long_skill_body_warns",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_markdown_link_covers_reference",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_missing_frontmatter_key",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_missing_grader_frontmatter_key",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_missing_skill_description",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_name_must_match_folder",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_orphan_reference",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_output_format_and_json_flag",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_place_files_existing_target_ok",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_place_files_missing_target",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_plugin_name_mismatch",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_display_name_too_long",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_http_url_rejected",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_icon_must_be_square",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_missing_icon",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_too_many_prompts",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_unknown_top_level_key",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_portable_version_must_match",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_unknown_frontmatter_key",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_valid_fixture_repo_passes",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_valid_portable_plugin_passes",
+      "tests_unit_test_check_skill_unit_checkskilltests_test_version_mismatch",
+      "tests_unit_test_check_skill_unit_error_messages",
+      "tests_unit_test_check_skill_unit_formatted",
+      "tests_unit_test_check_skill_unit_png_header",
+      "tests_unit_test_check_skill_unit_portable_with",
+      "tests_unit_test_check_skill_unit_rationale_125"
+    ],
+    "5": [
+      "scripts_check_examples",
+      "scripts_check_examples_apply_harness",
+      "scripts_check_examples_as_text",
+      "scripts_check_examples_block",
+      "scripts_check_examples_build_project",
+      "scripts_check_examples_check_brackets",
+      "scripts_check_examples_check_quotes",
+      "scripts_check_examples_check_repo",
+      "scripts_check_examples_doc_files",
+      "scripts_check_examples_find_blocks",
+      "scripts_check_examples_find_tsc",
+      "scripts_check_examples_first_code_line",
+      "scripts_check_examples_forbidden_module",
+      "scripts_check_examples_format_problem",
+      "scripts_check_examples_imported_modules",
+      "scripts_check_examples_load_harness",
+      "scripts_check_examples_main",
+      "scripts_check_examples_map_errors",
+      "scripts_check_examples_problem",
+      "scripts_check_examples_py_any",
+      "scripts_check_examples_py_path",
+      "scripts_check_examples_rationale_141",
+      "scripts_check_examples_rationale_188",
+      "scripts_check_examples_rationale_202",
+      "scripts_check_examples_rationale_277",
+      "scripts_check_examples_rationale_315",
+      "scripts_check_examples_rationale_342",
+      "scripts_check_examples_rationale_372",
+      "scripts_check_examples_rationale_427",
+      "scripts_check_examples_rationale_461",
+      "scripts_check_examples_rel",
+      "scripts_check_examples_render",
+      "scripts_check_examples_run_tsc",
+      "scripts_check_examples_summary_line"
+    ],
+    "6": [
+      "changelog",
+      "changelog_added",
+      "changelog_changelog",
+      "changelog_unreleased",
+      "contributing",
+      "contributing_contributing",
+      "contributing_good_first_contributions",
+      "contributing_license",
+      "contributing_making_a_change",
+      "contributing_style",
+      "contributing_the_one_rule_every_rule_needs_a_source",
+      "docs_architecture_readme",
+      "docs_architecture_readme_architecture_diagrams",
+      "examples_review_inventory",
+      "examples_review_inventory_10_no_tests_beside_the_code_usecase_ts",
+      "examples_review_inventory_1_the_domain_imports_zod_domain_ts_3",
+      "examples_review_inventory_2_the_use_case_imports_the_pg_adapter_instead_of_its_port_usecase_ts_5_31",
+      "examples_review_inventory_3_two_slices_import_each_other_usecase_ts_6",
+      "examples_review_inventory_4_a_second_envelope_writer_in_http_ts_with_mutes_on_top_http_ts_19_42",
+      "examples_review_inventory_5_a_fire_and_forget_enqueue_in_the_worker_worker_ts_27",
+      "examples_review_inventory_6_an_untyped_catch_that_swallows_usecase_ts_44",
+      "examples_review_inventory_7_console_log_on_the_request_path_usecase_ts_52_worker_ts_39",
+      "examples_review_inventory_8_an_unguarded_index_under_nouncheckedindexedaccess_domain_ts_14",
+      "examples_review_inventory_9_a_boolean_parameter_usecase_ts_12",
+      "examples_review_inventory_consider",
+      "examples_review_inventory_must_fix",
+      "examples_review_inventory_node_js_review_the_notifications_slice",
+      "examples_review_inventory_should_fix",
+      "examples_review_inventory_suggested_lints",
+      "examples_review_inventory_what_s_already_good",
+      "lints_readme",
+      "lints_readme_beautiful_node_js_lints",
+      "readme"
+    ],
+    "7": [
+      "lints_check_package",
+      "lints_check_package_description",
+      "lints_check_package_devdependencies",
+      "lints_check_package_devdependencies_bullmq",
+      "lints_check_package_devdependencies_drizzle_orm",
+      "lints_check_package_devdependencies_eslint",
+      "lints_check_package_devdependencies_eslint_community_eslint_plugin_eslint_comments",
+      "lints_check_package_devdependencies_eslint_js",
+      "lints_check_package_devdependencies_eslint_plugin_n",
+      "lints_check_package_devdependencies_fastify",
+      "lints_check_package_devdependencies_ioredis",
+      "lints_check_package_devdependencies_pg",
+      "lints_check_package_devdependencies_pino",
+      "lints_check_package_devdependencies_prom_client",
+      "lints_check_package_devdependencies_reflect_metadata",
+      "lints_check_package_devdependencies_tsyringe",
+      "lints_check_package_devdependencies_types_node",
+      "lints_check_package_devdependencies_types_pg",
+      "lints_check_package_devdependencies_typescript",
+      "lints_check_package_devdependencies_typescript_eslint",
+      "lints_check_package_devdependencies_zod",
+      "lints_check_package_imports",
+      "lints_check_package_imports_features",
+      "lints_check_package_imports_shared",
+      "lints_check_package_name",
+      "lints_check_package_private",
+      "lints_check_package_scripts",
+      "lints_check_package_scripts_check",
+      "lints_check_package_type",
+      "lints_check_package_version"
+    ],
+    "8": [
+      "plugin",
+      "plugin_author",
+      "plugin_author_name",
+      "plugin_author_url",
+      "plugin_com_openai_interface",
+      "plugin_com_openai_publication",
+      "plugin_description",
+      "plugin_extensions",
+      "plugin_extensions_com_openai",
+      "plugin_homepage",
+      "plugin_interface_brandcolor",
+      "plugin_interface_capabilities",
+      "plugin_interface_category",
+      "plugin_interface_composericon",
+      "plugin_interface_defaultprompt",
+      "plugin_interface_developername",
+      "plugin_interface_displayname",
+      "plugin_interface_logo",
+      "plugin_interface_longdescription",
+      "plugin_interface_privacypolicyurl",
+      "plugin_interface_shortdescription",
+      "plugin_interface_supporturl",
+      "plugin_interface_websiteurl",
+      "plugin_keywords",
+      "plugin_license",
+      "plugin_name",
+      "plugin_publication_release_notes",
+      "plugin_repository",
+      "plugin_schema",
+      "plugin_version"
+    ],
+    "9": [
+      "tests_integration_test_checker_failure_paths",
+      "tests_integration_test_checker_failure_paths_brokentsblock",
+      "tests_integration_test_checker_failure_paths_brokentsblock_test_broken_ts_block_fails_check_examples",
+      "tests_integration_test_checker_failure_paths_brokentsblock_test_stack_import_wall_fails_without_a_toolchain",
+      "tests_integration_test_checker_failure_paths_copiedrepofailures",
+      "tests_integration_test_checker_failure_paths_copiedrepofailures_test_interface_bogus_key_rejected",
+      "tests_integration_test_checker_failure_paths_copiedrepofailures_test_malformed_harness_list_is_reported_not_crashed",
+      "tests_integration_test_checker_failure_paths_copiedrepofailures_test_nested_reference_compiled",
+      "tests_integration_test_checker_failure_paths_copiedrepofailures_test_place_files_escape_is_rejected",
+      "tests_integration_test_checker_failure_paths_deletedlints",
+      "tests_integration_test_checker_failure_paths_deletedlints_remove_pinned_rule",
+      "tests_integration_test_checker_failure_paths_deletedlints_test_deleted_pinned_rule_fails_check_lints",
+      "tests_integration_test_checker_failure_paths_deletedlints_test_replica_drift_fails_check_lints",
+      "tests_integration_test_checker_failure_paths_deletedlints_test_replica_drift_is_detectable_offline",
+      "tests_integration_test_checker_failure_paths_guardedrepocase",
+      "tests_integration_test_checker_failure_paths_guardedrepocase_setup",
+      "tests_integration_test_checker_failure_paths_guardedrepocase_verify_real_repo_untouched",
+      "tests_integration_test_checker_failure_paths_has_eslint",
+      "tests_integration_test_checker_failure_paths_has_tsc",
+      "tests_integration_test_checker_failure_paths_rationale_117",
+      "tests_integration_test_checker_failure_paths_rationale_144",
+      "tests_integration_test_checker_failure_paths_rationale_193",
+      "tests_integration_test_checker_failure_paths_rationale_53",
+      "tests_integration_test_checker_failure_paths_rationale_68",
+      "tests_integration_test_checker_failure_paths_rationale_80",
+      "tests_integration_test_checker_failure_paths_rationale_89",
+      "tests_integration_test_checker_failure_paths_run_bash",
+      "tests_integration_test_checker_failure_paths_run_checker",
+      "tests_integration_test_checker_failure_paths_sha256"
+    ],
+    "10": [
+      "readme_agent_kit_claude_code",
+      "readme_any_agent_one_command",
+      "readme_architecture_diagrams",
+      "readme_beautiful_node_js",
+      "readme_claude_ai",
+      "readme_claude_code",
+      "readme_contributing",
+      "readme_cursor_or_anything_else_copy_the_folder",
+      "readme_gemini_cli",
+      "readme_github_copilot",
+      "readme_install",
+      "readme_layout",
+      "readme_license",
+      "readme_openai_codex",
+      "readme_porting_code_to_typescript",
+      "readme_reviewing_existing_code",
+      "readme_siblings",
+      "readme_sources_and_attribution",
+      "readme_testing_the_skills",
+      "readme_the_architecture_contract",
+      "readme_the_enforced_stack",
+      "readme_the_playbooks",
+      "readme_updating",
+      "readme_what_it_changes",
+      "readme_what_the_libraries_do_and_why",
+      "readme_what_the_lints_catch",
+      "readme_what_the_writing_skill_covers"
+    ],
+    "11": [
+      "claude_skills_graphify_skill",
+      "claude_skills_graphify_skill_for_graphify_add_and_watch",
+      "claude_skills_graphify_skill_for_graphify_query",
+      "claude_skills_graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
+      "claude_skills_graphify_skill_for_update_and_cluster_only",
+      "claude_skills_graphify_skill_graphify",
+      "claude_skills_graphify_skill_honesty_rules",
+      "claude_skills_graphify_skill_interpreter_guard_for_subcommands",
+      "claude_skills_graphify_skill_part_a_structural_extraction_for_code_files",
+      "claude_skills_graphify_skill_part_b_semantic_extraction_parallel_subagents",
+      "claude_skills_graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
+      "claude_skills_graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
+      "claude_skills_graphify_skill_step_1_ensure_graphify_is_installed",
+      "claude_skills_graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
+      "claude_skills_graphify_skill_step_2_detect_files",
+      "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "claude_skills_graphify_skill_step_4_5_graph_health_check_read_only_integrity_gate",
+      "claude_skills_graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
+      "claude_skills_graphify_skill_step_5_label_communities",
+      "claude_skills_graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
+      "claude_skills_graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
+      "claude_skills_graphify_skill_steps_6b_8_wiki_neo4j_falkordb_svg_graphml_mcp_benchmark_only_on_their_flags",
+      "claude_skills_graphify_skill_usage",
+      "claude_skills_graphify_skill_what_graphify_is_for",
+      "claude_skills_graphify_skill_what_you_must_do_when_invoked"
+    ],
+    "12": [
+      "tests_contracts_test_lints_contract",
+      "tests_contracts_test_lints_contract_configpairing",
+      "tests_contracts_test_lints_contract_configpairing_test_pinned_rules_are_exactly_the_explicit_config",
+      "tests_contracts_test_lints_contract_configpairing_test_replica_is_byte_identical_to_the_drop_in",
+      "tests_contracts_test_lints_contract_explicit_rules",
+      "tests_contracts_test_lints_contract_gatescript",
+      "tests_contracts_test_lints_contract_gatescript_setup",
+      "tests_contracts_test_lints_contract_gatescript_test_a_non_json_report_is_an_explicit_error",
+      "tests_contracts_test_lints_contract_gatescript_test_every_tool_run_is_bounded_by_a_timeout",
+      "tests_contracts_test_lints_contract_gatescript_test_gate_exists_with_markers_and_identity",
+      "tests_contracts_test_lints_contract_gatescript_test_stderr_is_surfaced",
+      "tests_contracts_test_lints_contract_harnesscoverage",
+      "tests_contracts_test_lints_contract_harnesscoverage_test_every_pinned_rule_has_a_marker",
+      "tests_contracts_test_lints_contract_harnesscoverage_test_markers_are_all_pinned_rules",
+      "tests_contracts_test_lints_contract_harnesscoverage_test_silencing_rules_are_pinned",
+      "tests_contracts_test_lints_contract_harnesscoverage_test_the_io_wall_is_among_the_pinned_rules",
+      "tests_contracts_test_lints_contract_marker_names",
+      "tests_contracts_test_lints_contract_rationale_110",
+      "tests_contracts_test_lints_contract_rationale_53"
+    ],
+    "13": [
+      "skills_nodejs_best_practices_skill",
+      "skills_nodejs_best_practices_skill_10_architecture_contract_the_backend_node_stack",
+      "skills_nodejs_best_practices_skill_11_tests",
+      "skills_nodejs_best_practices_skill_12_documentation_and_comments",
+      "skills_nodejs_best_practices_skill_13_final_checklist",
+      "skills_nodejs_best_practices_skill_1_mindset",
+      "skills_nodejs_best_practices_skill_2_before_you_hand_back_code",
+      "skills_nodejs_best_practices_skill_3_types_and_api_design",
+      "skills_nodejs_best_practices_skill_4_async_and_the_event_loop",
+      "skills_nodejs_best_practices_skill_5_errors_and_failure_modes",
+      "skills_nodejs_best_practices_skill_6_concurrency_queues_and_durable_work",
+      "skills_nodejs_best_practices_skill_7_persistence",
+      "skills_nodejs_best_practices_skill_8_logging_and_observability",
+      "skills_nodejs_best_practices_skill_9_dependency_injection_and_modules",
+      "skills_nodejs_best_practices_skill_node_js_best_practices",
+      "skills_nodejs_best_practices_skill_references"
+    ],
+    "14": [
+      "skills_nodejs_best_practices_references_google_typescript_style_guide",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_classes_and_objects",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_control_flow_and_expressions",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_dependencies_and_ecosystem",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_functions",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_google_typescript_style_guide_digest",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_language_features_prefer_and_avoid",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_naming",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_null_and_undefined",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_source_files",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_types",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_types_at_boundaries",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_types_declarations",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_types_declarations_the_short_version",
+      "skills_nodejs_best_practices_references_google_typescript_style_guide_why_these_condensed_items"
+    ],
+    "15": [
+      "skills_nodejs_port_skill",
+      "skills_nodejs_port_skill_1_understand_the_original_before_writing_anything",
+      "skills_nodejs_port_skill_2_port_the_tests_first",
+      "skills_nodejs_port_skill_3_design_the_typescript_api_then_implement_it",
+      "skills_nodejs_port_skill_4_keep_the_port_proportionate",
+      "skills_nodejs_port_skill_5_verify",
+      "skills_nodejs_port_skill_6_write_the_porting_notes",
+      "skills_nodejs_port_skill_a_port_is_domain_code",
+      "skills_nodejs_port_skill_errors_become_one_exported_discriminated_union",
+      "skills_nodejs_port_skill_from_c_and_c",
+      "skills_nodejs_port_skill_from_go",
+      "skills_nodejs_port_skill_from_legacy_javascript_and_to_ts_migrations",
+      "skills_nodejs_port_skill_from_python",
+      "skills_nodejs_port_skill_from_rust_java_and_other_aot_languages",
+      "skills_nodejs_port_skill_node_js_port"
+    ],
+    "16": [
+      "skills_nodejs_review_skill",
+      "skills_nodejs_review_skill_1_decide_the_scope",
+      "skills_nodejs_review_skill_1_short_title_src_features_notifications_usecase_ts_42",
+      "skills_nodejs_review_skill_2",
+      "skills_nodejs_review_skill_2_run_the_tools_first_if_you_can",
+      "skills_nodejs_review_skill_3",
+      "skills_nodejs_review_skill_3_what_to_look_for_in_priority_order",
+      "skills_nodejs_review_skill_4_write_the_report",
+      "skills_nodejs_review_skill_5_offer_the_lints",
+      "skills_nodejs_review_skill_consider",
+      "skills_nodejs_review_skill_must_fix",
+      "skills_nodejs_review_skill_node_js_review",
+      "skills_nodejs_review_skill_node_js_review_what_was_reviewed",
+      "skills_nodejs_review_skill_should_fix",
+      "skills_nodejs_review_skill_what_s_already_good"
+    ],
+    "17": [
+      "tests_contracts_test_ci_gates",
+      "tests_contracts_test_ci_gates_checkersteps",
+      "tests_contracts_test_ci_gates_checkersteps_test_check_examples_step_present",
+      "tests_contracts_test_ci_gates_checkersteps_test_check_lints_step_present",
+      "tests_contracts_test_ci_gates_checkersteps_test_check_skill_step_present",
+      "tests_contracts_test_ci_gates_checkersteps_test_examples_gate_never_silently_downgrades",
+      "tests_contracts_test_ci_gates_checkersteps_test_jobs_present",
+      "tests_contracts_test_ci_gates_checkersteps_test_node_toolchain_pin_present",
+      "tests_contracts_test_ci_gates_rationale_21",
+      "tests_contracts_test_ci_gates_rationale_45",
+      "tests_contracts_test_ci_gates_testsjob",
+      "tests_contracts_test_ci_gates_testsjob_test_tests_job_discovers_the_whole_suite",
+      "tests_contracts_test_ci_gates_testsjob_test_tests_job_pins_the_node_toolchain",
+      "tests_contracts_test_ci_gates_testsjob_test_tests_job_present",
+      "tests_contracts_test_ci_gates_workflow_text"
+    ],
+    "18": [
+      "skills_nodejs_best_practices_references_typescript_deep_dive",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_advanced_types",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_ambient_declarations",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_basics",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_exceptions",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_generics",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_noimplicitany_chapter_deep_dive_s_no_implicit_any_chapter_condensed",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_structural_vs_nominal_why_ports_compile",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_testing_deep_dive_on_jest_vitest_condensed",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_types",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_typescript_deep_dive_digest",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_why_these_condensed_items",
+      "skills_nodejs_best_practices_references_typescript_deep_dive_why_typescript"
+    ],
+    "19": [
+      "skills_nodejs_best_practices_references_backend_node_stack",
+      "skills_nodejs_best_practices_references_backend_node_stack_backend_node_stack_digest",
+      "skills_nodejs_best_practices_references_backend_node_stack_error_envelope_doc_10",
+      "skills_nodejs_best_practices_references_backend_node_stack_hexagonal_parts_doc_01",
+      "skills_nodejs_best_practices_references_backend_node_stack_observability_doc_10",
+      "skills_nodejs_best_practices_references_backend_node_stack_quiet_failure_modes_pass_every_general_lint",
+      "skills_nodejs_best_practices_references_backend_node_stack_request_lifecycle_doc_07",
+      "skills_nodejs_best_practices_references_backend_node_stack_see_also",
+      "skills_nodejs_best_practices_references_backend_node_stack_skeleton_facts_doc_13",
+      "skills_nodejs_best_practices_references_backend_node_stack_the_dependency_law_doc_04",
+      "skills_nodejs_best_practices_references_backend_node_stack_the_slice_file_by_file",
+      "skills_nodejs_best_practices_references_backend_node_stack_vertical_slicing_doc_02"
+    ],
+    "20": [
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_module",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_moduleresolution",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_noemit",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_noimplicitoverride",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_nouncheckedindexedaccess",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_skiplibcheck",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_strict",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_target",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_compileroptions_types",
+      "skills_nodejs_review_evals_review_notifications_slice_files_tsconfig_include"
+    ],
+    "21": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_module",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_moduleresolution",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_noemit",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_noimplicitoverride",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_nouncheckedindexedaccess",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_skiplibcheck",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_strict",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_compileroptions_target",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_tsconfig_include"
+    ],
+    "22": [
+      "skills_nodejs_best_practices_references_effective_typescript",
+      "skills_nodejs_best_practices_references_effective_typescript_any_management",
+      "skills_nodejs_best_practices_references_effective_typescript_declarations_and_module_shape",
+      "skills_nodejs_best_practices_references_effective_typescript_effective_typescript_digest",
+      "skills_nodejs_best_practices_references_effective_typescript_getting_up_to_speed",
+      "skills_nodejs_best_practices_references_effective_typescript_inference_and_narrowing",
+      "skills_nodejs_best_practices_references_effective_typescript_tests_the_book_s_testing_guidance_condensed",
+      "skills_nodejs_best_practices_references_effective_typescript_type_design",
+      "skills_nodejs_best_practices_references_effective_typescript_type_system_fundamentals",
+      "skills_nodejs_best_practices_references_effective_typescript_why_these_condensed_items",
+      "skills_nodejs_best_practices_references_effective_typescript_writing_and_running_code"
+    ],
+    "23": [
+      "tests_contracts_test_skill_wording",
+      "tests_contracts_test_skill_wording_bestpractices",
+      "tests_contracts_test_skill_wording_bestpractices_test_names_the_domain_forbidden_modules",
+      "tests_contracts_test_skill_wording_bestpractices_test_points_at_review_as_the_critic",
+      "tests_contracts_test_skill_wording_bestpractices_test_silencing_prohibition_names_both_tokens",
+      "tests_contracts_test_skill_wording_bestpractices_test_unbreakable_clause_present",
+      "tests_contracts_test_skill_wording_bp_body",
+      "tests_contracts_test_skill_wording_reviewskill",
+      "tests_contracts_test_skill_wording_reviewskill_test_architecture_category_ranks_first_as_must_fix",
+      "tests_contracts_test_skill_wording_reviewskill_test_waiver_detection_clause",
+      "tests_contracts_test_skill_wording_rv_body"
+    ],
+    "24": [
+      "lints_check_tsconfig",
+      "lints_check_tsconfig_compileroptions",
+      "lints_check_tsconfig_compileroptions_module",
+      "lints_check_tsconfig_compileroptions_moduleresolution",
+      "lints_check_tsconfig_compileroptions_noemit",
+      "lints_check_tsconfig_compileroptions_nouncheckedindexedaccess",
+      "lints_check_tsconfig_compileroptions_skiplibcheck",
+      "lints_check_tsconfig_compileroptions_strict",
+      "lints_check_tsconfig_compileroptions_target",
+      "lints_check_tsconfig_include"
+    ],
+    "25": [
+      "skills_nodejs_best_practices_references_nodejs_best_practices",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_code_style_practices_the_subset_relevant_to_services",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_error_handling_practices",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_going_to_production",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_node_js_best_practices_digest",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_performance_practices",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_project_structure_practices",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_security_practices_the_subset_relevant_to_services",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_testing_practices",
+      "skills_nodejs_best_practices_references_nodejs_best_practices_why_these_condensed_items"
+    ],
+    "26": [
+      "claude_skills_graphify_references_exports",
+      "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "claude_skills_graphify_references_exports_step_6b_wiki_only_if_wiki_flag",
+      "claude_skills_graphify_references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
+      "claude_skills_graphify_references_exports_step_7a_falkordb_export_only_if_falkordb_or_falkordb_push_flag",
+      "claude_skills_graphify_references_exports_step_7b_svg_export_only_if_svg_flag",
+      "claude_skills_graphify_references_exports_step_7c_graphml_export_only_if_graphml_flag",
+      "claude_skills_graphify_references_exports_step_7d_mcp_server_only_if_mcp_flag",
+      "claude_skills_graphify_references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
+    ],
+    "27": [
+      "tests_contracts_test_plugin_manifest",
+      "tests_contracts_test_plugin_manifest_load",
+      "tests_contracts_test_plugin_manifest_manifestpairing",
+      "tests_contracts_test_plugin_manifest_manifestpairing_test_marketplaces_name_the_plugin",
+      "tests_contracts_test_plugin_manifest_manifestpairing_test_root_and_claude_manifests_agree_on_name_version",
+      "tests_contracts_test_plugin_manifest_manifestpairing_test_schema_pin",
+      "tests_contracts_test_plugin_manifest_manifestpairing_test_skills_list_matches_folders_both_directions",
+      "tests_contracts_test_plugin_manifest_py_path",
+      "tests_contracts_test_plugin_manifest_skill_dirs"
+    ],
+    "28": [
+      "tests_e2e_test_ci_jobs",
+      "tests_e2e_test_ci_jobs_cijobs",
+      "tests_e2e_test_ci_jobs_cijobs_test_check_skill_job_green",
+      "tests_e2e_test_ci_jobs_cijobs_test_examples_job_green",
+      "tests_e2e_test_ci_jobs_cijobs_test_lints_job_green",
+      "tests_e2e_test_ci_jobs_cijobs_test_unittest_gate_green",
+      "tests_e2e_test_ci_jobs_has_eslint",
+      "tests_e2e_test_ci_jobs_run_ci"
+    ],
+    "29": [
+      "claude_agents_backend_api_designer",
+      "claude_agents_backend_api_designer_app_api_designer",
+      "claude_agents_backend_api_designer_core_mission",
+      "claude_agents_backend_api_designer_expertise_areas",
+      "claude_agents_backend_api_designer_guiding_principles",
+      "claude_agents_backend_api_designer_output_format",
+      "claude_agents_backend_api_designer_quality_standards"
+    ],
+    "30": [
+      "claude_agents_backend_migration_reviewer",
+      "claude_agents_backend_migration_reviewer_app_migration_reviewer",
+      "claude_agents_backend_migration_reviewer_core_mission",
+      "claude_agents_backend_migration_reviewer_expertise_areas",
+      "claude_agents_backend_migration_reviewer_guiding_principles",
+      "claude_agents_backend_migration_reviewer_output_format",
+      "claude_agents_backend_migration_reviewer_quality_standards"
+    ],
+    "31": [
+      "claude_agents_backend_ownership_reviewer",
+      "claude_agents_backend_ownership_reviewer_app_ownership_reviewer",
+      "claude_agents_backend_ownership_reviewer_core_mission",
+      "claude_agents_backend_ownership_reviewer_expertise_areas",
+      "claude_agents_backend_ownership_reviewer_guiding_principles",
+      "claude_agents_backend_ownership_reviewer_output_format",
+      "claude_agents_backend_ownership_reviewer_quality_standards"
+    ],
+    "32": [
+      "claude_agents_core_architect",
+      "claude_agents_core_architect_app_architect_agent",
+      "claude_agents_core_architect_core_mission",
+      "claude_agents_core_architect_expertise_areas",
+      "claude_agents_core_architect_guiding_principles",
+      "claude_agents_core_architect_output_format",
+      "claude_agents_core_architect_quality_standards"
+    ],
+    "33": [
+      "claude_agents_core_build_resolver",
+      "claude_agents_core_build_resolver_app_build_resolver_agent",
+      "claude_agents_core_build_resolver_core_mission",
+      "claude_agents_core_build_resolver_expertise_areas",
+      "claude_agents_core_build_resolver_guiding_principles",
+      "claude_agents_core_build_resolver_output_format",
+      "claude_agents_core_build_resolver_quality_standards"
+    ],
+    "34": [
+      "claude_agents_core_code_explorer",
+      "claude_agents_core_code_explorer_app_code_explorer_agent",
+      "claude_agents_core_code_explorer_core_mission",
+      "claude_agents_core_code_explorer_expertise_areas",
+      "claude_agents_core_code_explorer_guiding_principles",
+      "claude_agents_core_code_explorer_output_format",
+      "claude_agents_core_code_explorer_quality_standards"
+    ],
+    "35": [
+      "claude_agents_core_code_reviewer",
+      "claude_agents_core_code_reviewer_app_code_reviewer_agent",
+      "claude_agents_core_code_reviewer_core_mission",
+      "claude_agents_core_code_reviewer_expertise_areas",
+      "claude_agents_core_code_reviewer_guiding_principles",
+      "claude_agents_core_code_reviewer_output_format",
+      "claude_agents_core_code_reviewer_quality_standards"
+    ],
+    "36": [
+      "claude_agents_core_planner",
+      "claude_agents_core_planner_app_planner_agent",
+      "claude_agents_core_planner_core_mission",
+      "claude_agents_core_planner_expertise_areas",
+      "claude_agents_core_planner_guiding_principles",
+      "claude_agents_core_planner_output_format",
+      "claude_agents_core_planner_quality_standards"
+    ],
+    "37": [
+      "claude_agents_core_tdd_guide",
+      "claude_agents_core_tdd_guide_app_tdd_guide_agent",
+      "claude_agents_core_tdd_guide_core_mission",
+      "claude_agents_core_tdd_guide_expertise_areas",
+      "claude_agents_core_tdd_guide_guiding_principles",
+      "claude_agents_core_tdd_guide_output_format",
+      "claude_agents_core_tdd_guide_quality_standards"
+    ],
+    "38": [
+      "claude_agents_security_depguard_reviewer",
+      "claude_agents_security_depguard_reviewer_app_depguard_reviewer",
+      "claude_agents_security_depguard_reviewer_core_mission",
+      "claude_agents_security_depguard_reviewer_expertise_areas",
+      "claude_agents_security_depguard_reviewer_guiding_principles",
+      "claude_agents_security_depguard_reviewer_output_format",
+      "claude_agents_security_depguard_reviewer_quality_standards"
+    ],
+    "39": [
+      "claude_agents_testing_test_author",
+      "claude_agents_testing_test_author_app_test_author",
+      "claude_agents_testing_test_author_core_mission",
+      "claude_agents_testing_test_author_expertise_areas",
+      "claude_agents_testing_test_author_guiding_principles",
+      "claude_agents_testing_test_author_output_format",
+      "claude_agents_testing_test_author_quality_standards"
+    ],
+    "40": [
+      "claude_skills_add_handler_skill",
+      "claude_skills_add_handler_skill_app_add_handler",
+      "claude_skills_add_handler_skill_core_principles",
+      "claude_skills_add_handler_skill_output_format",
+      "claude_skills_add_handler_skill_research_references",
+      "claude_skills_add_handler_skill_rules",
+      "claude_skills_add_handler_skill_when_to_activate"
+    ],
+    "41": [
+      "claude_skills_add_module_skill",
+      "claude_skills_add_module_skill_app_add_module",
+      "claude_skills_add_module_skill_core_principles",
+      "claude_skills_add_module_skill_output_format",
+      "claude_skills_add_module_skill_research_references",
+      "claude_skills_add_module_skill_rules",
+      "claude_skills_add_module_skill_when_to_activate"
+    ],
+    "42": [
+      "claude_skills_claim_check_skill",
+      "claude_skills_claim_check_skill_app_claim_check_skill",
+      "claude_skills_claim_check_skill_core_principles",
+      "claude_skills_claim_check_skill_output_format",
+      "claude_skills_claim_check_skill_research_references",
+      "claude_skills_claim_check_skill_rules",
+      "claude_skills_claim_check_skill_when_to_activate"
+    ],
+    "43": [
+      "claude_skills_clean_room_rebuild_skill",
+      "claude_skills_clean_room_rebuild_skill_app_clean_room_rebuild_skill",
+      "claude_skills_clean_room_rebuild_skill_core_principles",
+      "claude_skills_clean_room_rebuild_skill_output_format",
+      "claude_skills_clean_room_rebuild_skill_research_references",
+      "claude_skills_clean_room_rebuild_skill_rules",
+      "claude_skills_clean_room_rebuild_skill_when_to_activate"
+    ],
+    "44": [
+      "claude_skills_corpus_retrieval_skill",
+      "claude_skills_corpus_retrieval_skill_app_corpus_retrieval_skill",
+      "claude_skills_corpus_retrieval_skill_core_principles",
+      "claude_skills_corpus_retrieval_skill_output_format",
+      "claude_skills_corpus_retrieval_skill_research_references",
+      "claude_skills_corpus_retrieval_skill_rules",
+      "claude_skills_corpus_retrieval_skill_when_to_activate"
+    ],
+    "45": [
+      "claude_skills_depguard_guard_skill",
+      "claude_skills_depguard_guard_skill_app_depguard_guard",
+      "claude_skills_depguard_guard_skill_core_principles",
+      "claude_skills_depguard_guard_skill_output_format",
+      "claude_skills_depguard_guard_skill_research_references",
+      "claude_skills_depguard_guard_skill_rules",
+      "claude_skills_depguard_guard_skill_when_to_activate"
+    ],
+    "46": [
+      "claude_skills_diagnosing_bugs_skill",
+      "claude_skills_diagnosing_bugs_skill_app_diagnosing_bugs_skill",
+      "claude_skills_diagnosing_bugs_skill_core_principles",
+      "claude_skills_diagnosing_bugs_skill_output_format",
+      "claude_skills_diagnosing_bugs_skill_research_references",
+      "claude_skills_diagnosing_bugs_skill_rules",
+      "claude_skills_diagnosing_bugs_skill_when_to_activate"
+    ],
+    "47": [
+      "claude_skills_domain_modeling_skill",
+      "claude_skills_domain_modeling_skill_app_domain_modeling_skill",
+      "claude_skills_domain_modeling_skill_core_principles",
+      "claude_skills_domain_modeling_skill_output_format",
+      "claude_skills_domain_modeling_skill_research_references",
+      "claude_skills_domain_modeling_skill_rules",
+      "claude_skills_domain_modeling_skill_when_to_activate"
+    ],
+    "48": [
+      "claude_skills_grilling_skill",
+      "claude_skills_grilling_skill_app_grilling_skill",
+      "claude_skills_grilling_skill_core_principles",
+      "claude_skills_grilling_skill_output_format",
+      "claude_skills_grilling_skill_research_references",
+      "claude_skills_grilling_skill_rules",
+      "claude_skills_grilling_skill_when_to_activate"
+    ],
+    "49": [
+      "claude_skills_learn_skill",
+      "claude_skills_learn_skill_app_learn_skill",
+      "claude_skills_learn_skill_core_principles",
+      "claude_skills_learn_skill_output_format",
+      "claude_skills_learn_skill_research_references",
+      "claude_skills_learn_skill_rules",
+      "claude_skills_learn_skill_when_to_activate"
+    ],
+    "50": [
+      "claude_skills_ownership_author_skill",
+      "claude_skills_ownership_author_skill_app_ownership_author",
+      "claude_skills_ownership_author_skill_core_principles",
+      "claude_skills_ownership_author_skill_output_format",
+      "claude_skills_ownership_author_skill_research_references",
+      "claude_skills_ownership_author_skill_rules",
+      "claude_skills_ownership_author_skill_when_to_activate"
+    ],
+    "51": [
+      "claude_skills_plan_skill",
+      "claude_skills_plan_skill_app_plan_skill",
+      "claude_skills_plan_skill_core_principles",
+      "claude_skills_plan_skill_output_format",
+      "claude_skills_plan_skill_research_references",
+      "claude_skills_plan_skill_rules",
+      "claude_skills_plan_skill_when_to_activate"
+    ],
+    "52": [
+      "claude_skills_research_skill",
+      "claude_skills_research_skill_app_research_skill",
+      "claude_skills_research_skill_core_principles",
+      "claude_skills_research_skill_output_format",
+      "claude_skills_research_skill_research_references",
+      "claude_skills_research_skill_rules",
+      "claude_skills_research_skill_when_to_activate"
+    ],
+    "53": [
+      "claude_skills_review_skill",
+      "claude_skills_review_skill_app_review_skill",
+      "claude_skills_review_skill_core_principles",
+      "claude_skills_review_skill_output_format",
+      "claude_skills_review_skill_research_references",
+      "claude_skills_review_skill_rules",
+      "claude_skills_review_skill_when_to_activate"
+    ],
+    "54": [
+      "claude_skills_ship_skill",
+      "claude_skills_ship_skill_app_ship_skill",
+      "claude_skills_ship_skill_core_principles",
+      "claude_skills_ship_skill_output_format",
+      "claude_skills_ship_skill_research_references",
+      "claude_skills_ship_skill_rules",
+      "claude_skills_ship_skill_when_to_activate"
+    ],
+    "55": [
+      "claude_skills_spec_skill",
+      "claude_skills_spec_skill_app_spec_skill",
+      "claude_skills_spec_skill_core_principles",
+      "claude_skills_spec_skill_output_format",
+      "claude_skills_spec_skill_research_references",
+      "claude_skills_spec_skill_rules",
+      "claude_skills_spec_skill_when_to_activate"
+    ],
+    "56": [
+      "claude_skills_tdd_skill",
+      "claude_skills_tdd_skill_app_tdd_skill",
+      "claude_skills_tdd_skill_core_principles",
+      "claude_skills_tdd_skill_output_format",
+      "claude_skills_tdd_skill_research_references",
+      "claude_skills_tdd_skill_rules",
+      "claude_skills_tdd_skill_when_to_activate"
+    ],
+    "57": [
+      "claude_skills_verified_status_skill",
+      "claude_skills_verified_status_skill_app_verified_status_skill",
+      "claude_skills_verified_status_skill_core_principles",
+      "claude_skills_verified_status_skill_output_format",
+      "claude_skills_verified_status_skill_research_references",
+      "claude_skills_verified_status_skill_rules",
+      "claude_skills_verified_status_skill_when_to_activate"
+    ],
+    "58": [
+      "lints_check_src_clean",
+      "lints_check_src_clean_dispatchport",
+      "lints_check_src_clean_dispatchport_enqueue",
+      "lints_check_src_clean_double",
+      "lints_check_src_clean_makeport",
+      "lints_check_src_clean_port_token",
+      "lints_check_src_clean_porttoken"
+    ],
+    "59": [
+      "claude_skills_graphify_references_query",
+      "claude_skills_graphify_references_query_for_graphify_explain",
+      "claude_skills_graphify_references_query_for_graphify_path",
+      "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "claude_skills_graphify_references_query_step_0_constrained_query_expansion_required_before_traversal",
+      "claude_skills_graphify_references_query_step_1_traversal"
+    ],
+    "60": [
+      "scripts_package_openai_plugin",
+      "scripts_package_openai_plugin_build",
+      "scripts_package_openai_plugin_main",
+      "scripts_package_openai_plugin_package_files",
+      "scripts_package_openai_plugin_py_path",
+      "scripts_package_openai_plugin_rationale_30"
+    ],
+    "61": [
+      "lints_check_src_features_billing_domain",
+      "lints_check_src_features_billing_domain_invoicelabel",
+      "lints_check_src_features_billing_domain_invoicetotal",
+      "lints_check_src_features_notifications_relative_parent",
+      "lints_check_src_features_notifications_relative_parent_renderinvoiceplain"
+    ],
+    "62": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_worker",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_worker_enqueuerow",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_worker_outboxrow",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_worker_rows",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_notifications_worker_startnotificationworker"
+    ],
+    "63": [
+      "claude",
+      "claude_beautifulnodejs_agent_instructions",
+      "claude_graphify",
+      "claude_model_routing_claude_code_ollama"
+    ],
+    "64": [
+      "claude_skills_graphify_references_add_watch",
+      "claude_skills_graphify_references_add_watch_for_graphify_add",
+      "claude_skills_graphify_references_add_watch_for_watch",
+      "claude_skills_graphify_references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
+    ],
+    "65": [
+      "claude_skills_graphify_references_hooks",
+      "claude_skills_graphify_references_hooks_for_git_commit_hook",
+      "claude_skills_graphify_references_hooks_for_native_claude_md_integration",
+      "claude_skills_graphify_references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
+    ],
+    "66": [
+      "claude_skills_graphify_references_update",
+      "claude_skills_graphify_references_update_for_cluster_only",
+      "claude_skills_graphify_references_update_for_update_incremental_re_extraction",
+      "claude_skills_graphify_references_update_graphify_reference_incremental_update_and_cluster_only"
+    ],
+    "67": [
+      "lints_check_eslint_config",
+      "lints_check_eslint_config_domain_patterns",
+      "lints_check_eslint_config_slice_pattern",
+      "lints_check_eslint_config_usecase_patterns"
+    ],
+    "68": [
+      "lints_check_src_missing_return_type",
+      "lints_check_src_missing_return_type_assertedcopy",
+      "lints_check_src_missing_return_type_labelof",
+      "lints_check_src_missing_return_type_shout"
+    ],
+    "69": [
+      "lints_eslint_config",
+      "lints_eslint_config_domain_patterns",
+      "lints_eslint_config_slice_pattern",
+      "lints_eslint_config_usecase_patterns"
+    ],
+    "70": [
+      "scripts_check_lints",
+      "scripts_check_lints_bounded",
+      "scripts_check_lints_fail",
+      "scripts_check_lints_sh__entry"
+    ],
+    "71": [
+      "scripts_hooks_guard_bash",
+      "scripts_hooks_guard_bash_has",
+      "scripts_hooks_guard_bash_has_i",
+      "scripts_hooks_guard_bash_sh__entry"
+    ],
+    "72": [
+      "claude_commands_add_handler",
+      "claude_commands_add_handler_add_handler",
+      "claude_commands_add_handler_delegate"
+    ],
+    "73": [
+      "claude_commands_add_module",
+      "claude_commands_add_module_add_module",
+      "claude_commands_add_module_delegate"
+    ],
+    "74": [
+      "claude_commands_claim_check",
+      "claude_commands_claim_check_claim_check",
+      "claude_commands_claim_check_delegate"
+    ],
+    "75": [
+      "claude_commands_clean_room_rebuild",
+      "claude_commands_clean_room_rebuild_clean_room_rebuild",
+      "claude_commands_clean_room_rebuild_delegate"
+    ],
+    "76": [
+      "claude_commands_corpus_retrieval",
+      "claude_commands_corpus_retrieval_corpus_retrieval",
+      "claude_commands_corpus_retrieval_delegate"
+    ],
+    "77": [
+      "claude_commands_depguard_guard",
+      "claude_commands_depguard_guard_delegate",
+      "claude_commands_depguard_guard_depguard_guard"
+    ],
+    "78": [
+      "claude_commands_diagnosing_bugs",
+      "claude_commands_diagnosing_bugs_delegate",
+      "claude_commands_diagnosing_bugs_diagnosing_bugs"
+    ],
+    "79": [
+      "claude_commands_domain_modeling",
+      "claude_commands_domain_modeling_delegate",
+      "claude_commands_domain_modeling_domain_modeling"
+    ],
+    "80": [
+      "claude_commands_grilling",
+      "claude_commands_grilling_delegate",
+      "claude_commands_grilling_grilling"
+    ],
+    "81": [
+      "claude_commands_learn",
+      "claude_commands_learn_delegate",
+      "claude_commands_learn_learn"
+    ],
+    "82": [
+      "claude_commands_ownership_author",
+      "claude_commands_ownership_author_delegate",
+      "claude_commands_ownership_author_ownership_author"
+    ],
+    "83": [
+      "claude_commands_plan",
+      "claude_commands_plan_delegate",
+      "claude_commands_plan_plan"
+    ],
+    "84": [
+      "claude_commands_research",
+      "claude_commands_research_delegate",
+      "claude_commands_research_research"
+    ],
+    "85": [
+      "claude_commands_review",
+      "claude_commands_review_delegate",
+      "claude_commands_review_review"
+    ],
+    "86": [
+      "claude_commands_ship",
+      "claude_commands_ship_delegate",
+      "claude_commands_ship_ship"
+    ],
+    "87": [
+      "claude_commands_spec",
+      "claude_commands_spec_delegate",
+      "claude_commands_spec_spec"
+    ],
+    "88": [
+      "claude_commands_tdd",
+      "claude_commands_tdd_delegate",
+      "claude_commands_tdd_tdd"
+    ],
+    "89": [
+      "claude_commands_verified_status",
+      "claude_commands_verified_status_delegate",
+      "claude_commands_verified_status_verified_status"
+    ],
+    "90": [
+      "claude_rules_playbooks",
+      "claude_rules_playbooks_cross_repo_relationship_1_n",
+      "claude_rules_playbooks_playbooks_for_beautifulnodejs_load_on_demand"
+    ],
+    "91": [
+      "claude_skills_graphify_references_github_and_merge",
+      "claude_skills_graphify_references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "claude_skills_graphify_references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
+    ],
+    "92": [
+      "claude_skills_graphify_references_transcribe",
+      "claude_skills_graphify_references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "claude_skills_graphify_references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
+    ],
+    "93": [
+      "lints_check_src_non_exhaustive_switch",
+      "lints_check_src_non_exhaustive_switch_describemode",
+      "lints_check_src_non_exhaustive_switch_dispatchmode"
+    ],
+    "94": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_billing_domain",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_billing_domain_outbox_topic",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_src_features_billing_domain_quotas"
+    ],
+    "95": [
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_worker",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_worker_delivernotification",
+      "skills_nodejs_review_evals_review_notifications_slice_files_src_features_notifications_worker_startnotificationworker"
+    ],
+    "96": [
+      "claude_claude",
+      "claude_claude_graphify"
+    ],
+    "97": [
+      "claude_readme",
+      "claude_readme_claude_this_repo_s_claude_code_kit"
+    ],
+    "98": [
+      "claude_skills_claim_check_credits",
+      "claude_skills_claim_check_credits_credits"
+    ],
+    "99": [
+      "claude_skills_clean_room_rebuild_credits",
+      "claude_skills_clean_room_rebuild_credits_credits"
+    ],
+    "100": [
+      "claude_skills_corpus_retrieval_credits",
+      "claude_skills_corpus_retrieval_credits_credits"
+    ],
+    "101": [
+      "claude_skills_diagnosing_bugs_credits",
+      "claude_skills_diagnosing_bugs_credits_credits"
+    ],
+    "102": [
+      "claude_skills_domain_modeling_credits",
+      "claude_skills_domain_modeling_credits_credits"
+    ],
+    "103": [
+      "claude_skills_graphify_references_extraction_spec",
+      "claude_skills_graphify_references_extraction_spec_graphify_reference_extraction_subagent_prompt"
+    ],
+    "104": [
+      "claude_skills_grilling_credits",
+      "claude_skills_grilling_credits_credits"
+    ],
+    "105": [
+      "claude_skills_research_credits",
+      "claude_skills_research_credits_credits"
+    ],
+    "106": [
+      "claude_skills_tdd_credits",
+      "claude_skills_tdd_credits_credits"
+    ],
+    "107": [
+      "claude_skills_verified_status_credits",
+      "claude_skills_verified_status_credits_credits"
+    ],
+    "108": [
+      "lints_check_src_consistent_type_imports",
+      "lints_check_src_consistent_type_imports_makequery"
+    ],
+    "109": [
+      "lints_check_src_features_notifications_domain",
+      "lints_check_src_features_notifications_domain_dependencies"
+    ],
+    "110": [
+      "lints_check_src_features_notifications_http",
+      "lints_check_src_features_notifications_http_renderinvoice"
+    ],
+    "111": [
+      "lints_check_src_features_notifications_usecase",
+      "lints_check_src_features_notifications_usecase_wired"
+    ],
+    "112": [
+      "lints_check_src_floating_promise",
+      "lints_check_src_floating_promise_persist"
+    ],
+    "113": [
+      "lints_check_src_misused_promise",
+      "lints_check_src_misused_promise_rows"
+    ],
+    "114": [
+      "privacy",
+      "privacy_privacy_policy"
+    ],
+    "115": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_place_files",
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_place_files_sh__entry"
+    ],
+    "116": [
+      "skills_nodejs_port_evals_port_python_inventory_place_files",
+      "skills_nodejs_port_evals_port_python_inventory_place_files_sh__entry"
+    ],
+    "117": [
+      "skills_nodejs_review_evals_review_notifications_slice_place_files",
+      "skills_nodejs_review_evals_review_notifications_slice_place_files_sh__entry"
+    ],
+    "118": [
+      "lints_check_src_console_log"
+    ],
+    "119": [
+      "lints_check_src_mute_directives"
+    ],
+    "120": [
+      "lints_check_src_node_apis"
+    ],
+    "121": [
+      "lints_check_src_ts_ignore"
+    ],
+    "122": [
+      "lints_check_src_ts_nocheck"
+    ],
+    "123": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_files_eslint_config"
+    ],
+    "124": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_01_does_not_weaken_or_delete_the_lints"
+    ],
+    "125": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_02_domain_has_no_io_imports"
+    ],
+    "126": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_03_slices_do_not_import_siblings"
+    ],
+    "127": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_04_usecase_stores_the_port"
+    ],
+    "128": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_05_adapter_maps_errors_once"
+    ],
+    "129": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_06_one_error_envelope"
+    ],
+    "130": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_07_structured_logging_only_via_pino"
+    ],
+    "131": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_08_durable_work_via_bullmq_outbox"
+    ],
+    "132": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_09_typecheck_and_lint_clean"
+    ],
+    "133": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_graders_10_changes_listed_with_reasons"
+    ],
+    "134": [
+      "skills_nodejs_best_practices_evals_refactor_notifications_slice_prompt"
+    ],
+    "135": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_01_typecheck_clean"
+    ],
+    "136": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_02_explicit_return_types_on_exports"
+    ],
+    "137": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_03_no_any_unknown_narrowed"
+    ],
+    "138": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_04_discriminated_error_type_exported"
+    ],
+    "139": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_05_invalid_states_unrepresentable"
+    ],
+    "140": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_06_table_driven_tests"
+    ],
+    "141": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_07_esm_package_shape"
+    ],
+    "142": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_08_docs_describe_failure_modes"
+    ],
+    "143": [
+      "skills_nodejs_best_practices_evals_semver_range_library_graders_09_behavior_preserved_on_edge_cases"
+    ],
+    "144": [
+      "skills_nodejs_best_practices_evals_semver_range_library_prompt"
+    ],
+    "145": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_01_typecheck_clean"
+    ],
+    "146": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_02_explicit_return_types_on_exports"
+    ],
+    "147": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_03_no_any_unknown_narrowed"
+    ],
+    "148": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_04_discriminated_error_type_exported"
+    ],
+    "149": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_05_invalid_states_unrepresentable"
+    ],
+    "150": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_06_table_driven_tests"
+    ],
+    "151": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_07_esm_package_shape"
+    ],
+    "152": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_08_docs_describe_failure_modes"
+    ],
+    "153": [
+      "skills_nodejs_port_evals_port_python_inventory_graders_09_behavior_preserved_on_edge_cases"
+    ],
+    "154": [
+      "skills_nodejs_port_evals_port_python_inventory_prompt"
+    ],
+    "155": [
+      "skills_nodejs_review_evals_review_notifications_slice_files_eslint_config"
+    ],
+    "156": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_01_architecture_contracts_ranked_first"
+    ],
+    "157": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_02_flags_domain_importing_zod"
+    ],
+    "158": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_03_flags_cross_slice_import"
+    ],
+    "159": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_04_flags_pg_adapter_in_usecase"
+    ],
+    "160": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_05_flags_console_log"
+    ],
+    "161": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_06_flags_floating_promise"
+    ],
+    "162": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_07_flags_muted_or_deleted_lints"
+    ],
+    "163": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_08_accepts_fastify_idioms"
+    ],
+    "164": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_09_findings_cite_locations_and_rules"
+    ],
+    "165": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_10_fixes_shown_as_code"
+    ],
+    "166": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_11_says_what_is_good"
+    ],
+    "167": [
+      "skills_nodejs_review_evals_review_notifications_slice_graders_12_code_left_unchanged"
+    ],
+    "168": [
+      "skills_nodejs_review_evals_review_notifications_slice_prompt"
+    ],
+    "169": [
+      "tests_contracts_init"
+    ],
+    "170": [
+      "tests_e2e_init"
+    ],
+    "171": [
+      "tests_init"
+    ],
+    "172": [
+      "tests_integration_init"
+    ],
+    "173": [
+      "tests_unit_init"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10615079365079365,
+    "1": 0.05222734254992319,
+    "2": 0.062146892655367235,
+    "3": 0.07946127946127945,
+    "4": 0.13574660633484162,
+    "5": 0.1319073083778966,
+    "6": 0.0625,
+    "7": 0.06666666666666667,
+    "8": 0.06666666666666667,
+    "9": 0.10344827586206896,
+    "10": 0.07407407407407407,
+    "11": 0.08,
+    "12": 0.12280701754385964,
+    "13": 0.125,
+    "14": 0.13333333333333333,
+    "15": 0.13333333333333333,
+    "16": 0.13333333333333333,
+    "17": 0.21904761904761905,
+    "18": 0.15384615384615385,
+    "19": 0.16666666666666666,
+    "20": 0.16666666666666666,
+    "21": 0.18181818181818182,
+    "22": 0.18181818181818182,
+    "23": 0.2909090909090909,
+    "24": 0.2,
+    "25": 0.2,
+    "26": 0.2222222222222222,
+    "27": 0.3611111111111111,
+    "28": 0.39285714285714285,
+    "29": 0.2857142857142857,
+    "30": 0.2857142857142857,
+    "31": 0.2857142857142857,
+    "32": 0.2857142857142857,
+    "33": 0.2857142857142857,
+    "34": 0.2857142857142857,
+    "35": 0.2857142857142857,
+    "36": 0.2857142857142857,
+    "37": 0.2857142857142857,
+    "38": 0.2857142857142857,
+    "39": 0.2857142857142857,
+    "40": 0.2857142857142857,
+    "41": 0.2857142857142857,
+    "42": 0.2857142857142857,
+    "43": 0.2857142857142857,
+    "44": 0.2857142857142857,
+    "45": 0.2857142857142857,
+    "46": 0.2857142857142857,
+    "47": 0.2857142857142857,
+    "48": 0.2857142857142857,
+    "49": 0.2857142857142857,
+    "50": 0.2857142857142857,
+    "51": 0.2857142857142857,
+    "52": 0.2857142857142857,
+    "53": 0.2857142857142857,
+    "54": 0.2857142857142857,
+    "55": 0.2857142857142857,
+    "56": 0.2857142857142857,
+    "57": 0.2857142857142857,
+    "58": 0.2857142857142857,
+    "59": 0.3333333333333333,
+    "60": 0.5333333333333333,
+    "61": 0.6,
+    "62": 0.4,
+    "63": 0.5,
+    "64": 0.5,
+    "65": 0.5,
+    "66": 0.5,
+    "67": 0.5,
+    "68": 0.5,
+    "69": 0.5,
+    "70": 0.8333333333333334,
+    "71": 0.8333333333333334,
+    "72": 0.6666666666666666,
+    "73": 0.6666666666666666,
+    "74": 0.6666666666666666,
+    "75": 0.6666666666666666,
+    "76": 0.6666666666666666,
+    "77": 0.6666666666666666,
+    "78": 0.6666666666666666,
+    "79": 0.6666666666666666,
+    "80": 0.6666666666666666,
+    "81": 0.6666666666666666,
+    "82": 0.6666666666666666,
+    "83": 0.6666666666666666,
+    "84": 0.6666666666666666,
+    "85": 0.6666666666666666,
+    "86": 0.6666666666666666,
+    "87": 0.6666666666666666,
+    "88": 0.6666666666666666,
+    "89": 0.6666666666666666,
+    "90": 0.6666666666666666,
+    "91": 0.6666666666666666,
+    "92": 0.6666666666666666,
+    "93": 0.6666666666666666,
+    "94": 0.6666666666666666,
+    "95": 1.0,
+    "96": 1.0,
+    "97": 1.0,
+    "98": 1.0,
+    "99": 1.0,
+    "100": 1.0,
+    "101": 1.0,
+    "102": 1.0,
+    "103": 1.0,
+    "104": 1.0,
+    "105": 1.0,
+    "106": 1.0,
+    "107": 1.0,
+    "108": 1.0,
+    "109": 1.0,
+    "110": 1.0,
+    "111": 1.0,
+    "112": 1.0,
+    "113": 1.0,
+    "114": 1.0,
+    "115": 1.0,
+    "116": 1.0,
+    "117": 1.0,
+    "118": 1.0,
+    "119": 1.0,
+    "120": 1.0,
+    "121": 1.0,
+    "122": 1.0,
+    "123": 1.0,
+    "124": 1.0,
+    "125": 1.0,
+    "126": 1.0,
+    "127": 1.0,
+    "128": 1.0,
+    "129": 1.0,
+    "130": 1.0,
+    "131": 1.0,
+    "132": 1.0,
+    "133": 1.0,
+    "134": 1.0,
+    "135": 1.0,
+    "136": 1.0,
+    "137": 1.0,
+    "138": 1.0,
+    "139": 1.0,
+    "140": 1.0,
+    "141": 1.0,
+    "142": 1.0,
+    "143": 1.0,
+    "144": 1.0,
+    "145": 1.0,
+    "146": 1.0,
+    "147": 1.0,
+    "148": 1.0,
+    "149": 1.0,
+    "150": 1.0,
+    "151": 1.0,
+    "152": 1.0,
+    "153": 1.0,
+    "154": 1.0,
+    "155": 1.0,
+    "156": 1.0,
+    "157": 1.0,
+    "158": 1.0,
+    "159": 1.0,
+    "160": 1.0,
+    "161": 1.0,
+    "162": 1.0,
+    "163": 1.0,
+    "164": 1.0,
+    "165": 1.0,
+    "166": 1.0,
+    "167": 1.0,
+    "168": 1.0,
+    "169": 1.0,
+    "170": 1.0,
+    "171": 1.0,
+    "172": 1.0,
+    "173": 1.0
+  },
+  "gods": [
+    {
+      "id": "tests_support_write",
+      "label": "write()",
+      "degree": 35
+    },
+    {
+      "id": "tests_unit_test_check_skill_unit_checkskilltests",
+      "label": "CheckSkillTests",
+      "degree": 35
+    },
+    {
+      "id": "tests_unit_test_check_skill_unit_build_valid_repo",
+      "label": "build_valid_repo()",
+      "degree": 32
+    },
+    {
+      "id": "scripts_check_skill_checker",
+      "label": "Checker",
+      "degree": 26
+    },
+    {
+      "id": "readme_beautiful_node_js",
+      "label": "Beautiful Node.js",
+      "degree": 20
+    },
+    {
+      "id": "scripts_check_examples_check_repo",
+      "label": "check_repo()",
+      "degree": 17
+    },
+    {
+      "id": "scripts_check_skill_yamlparser",
+      "label": "YamlParser",
+      "degree": 16
+    },
+    {
+      "id": "skills_nodejs_port_evals_port_python_inventory_files_test_inventory_withdrawtest",
+      "label": "WithdrawTest",
+      "degree": 15
+    },
+    {
+      "id": "skills_nodejs_best_practices_skill_node_js_best_practices",
+      "label": "Node.js best practices",
+      "degree": 15
+    },
+    {
+      "id": "plugin_com_openai_interface",
+      "label": "interface",
+      "degree": 14
+    }
+  ],
+  "surprises": [
+    {
+      "source": "ParseInventoryTest",
+      "target": "InventoryError",
+      "source_files": [
+        "skills/nodejs-port/evals/port-python-inventory/files/test_inventory.py",
+        "skills/nodejs-port/evals/port-python-inventory/files/inventory.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "QueryTest",
+      "target": "InventoryError",
+      "source_files": [
+        "skills/nodejs-port/evals/port-python-inventory/files/test_inventory.py",
+        "skills/nodejs-port/evals/port-python-inventory/files/inventory.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "WithdrawTest",
+      "target": "InventoryError",
+      "source_files": [
+        "skills/nodejs-port/evals/port-python-inventory/files/test_inventory.py",
+        "skills/nodejs-port/evals/port-python-inventory/files/inventory.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "ParseInventoryTest",
+      "target": "ParseError",
+      "source_files": [
+        "skills/nodejs-port/evals/port-python-inventory/files/test_inventory.py",
+        "skills/nodejs-port/evals/port-python-inventory/files/inventory.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "QueryTest",
+      "target": "ParseError",
+      "source_files": [
+        "skills/nodejs-port/evals/port-python-inventory/files/test_inventory.py",
+        "skills/nodejs-port/evals/port-python-inventory/files/inventory.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `write()` connect `write` to `_support.py`?",
+      "why": "High betweenness centrality (0.009) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `render()` connect `check-examples.py` to `Path`?",
+      "why": "High betweenness centrality (0.006) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `load_script()` connect `_support.py` to `write`?",
+      "why": "High betweenness centrality (0.004) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `SLICE_PATTERN`, `DOMAIN_PATTERNS`, `USECASE_PATTERNS` to the rest of the system?",
+      "why": "489 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Path` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10615079365079365 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `_support.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.05222734254992319 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `usecase.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.062146892655367235 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
