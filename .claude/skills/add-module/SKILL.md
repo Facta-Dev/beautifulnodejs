@@ -1,5 +1,5 @@
 ---
-name: "<app> Add Module"
+name: add-module
 description: "Scaffold a new feature slice (src/features/<scope>) in <app>: ports.ts consumer-owned interfaces, usecase.ts, module.ts register(), deps wiring in src/bin/api.ts, hexagonal direction, and the fake-backed test gate, as one change."
 division: backend
 ---

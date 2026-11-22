@@ -1,5 +1,5 @@
 ---
-name: "<app> Add Handler"
+name: add-handler
 description: "Scaffold a new Fastify route in <app>: handler decode shape, envelope mapping, specs/openapi.yaml entry, route registration in src/features/<slice>/module.ts, and Deps wiring, as one change across the slice."
 division: backend
 ---
