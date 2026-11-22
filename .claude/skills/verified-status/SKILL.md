@@ -42,10 +42,10 @@ claim the requester has already verified themselves.
 
 Provenance table, every claim in a finding needs a row.
 
-| claim | source | year | link |
-| --- | --- | --- | --- |
-| Report what you verified and what you did not | Craft Anything | 2026 | `AGENTS.md` |
-| The status table format | Craft Anything | 2026 | `docs/STATUS.md` |
+| claim                                         | source         | year | link             |
+| --------------------------------------------- | -------------- | ---- | ---------------- |
+| Report what you verified and what you did not | Craft Anything | 2026 | `AGENTS.md`      |
+| The status table format                       | Craft Anything | 2026 | `docs/STATUS.md` |
 
 ## Output Format
 

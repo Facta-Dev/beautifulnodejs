@@ -16,7 +16,7 @@ slice-isolation rules) clean, `pnpm test` (vitest unit with fakes) green, and
 coherent: every database access goes through the slice's `queries.ts`
 (Kysely-built SQL) — never a runtime-interpolated SQL string — and no error
 path leaks an internal detail (a pg error, a stack trace, a raw DB constraint
-name) into the `{"detail","code"}` envelope body. A change that regresses the
+name) into the `{"error":{"code","message"}}` envelope body. A change that regresses the
 gate or an invariant is a BLOCK regardless of how small the diff looks.
 
 ## Expertise Areas
@@ -31,7 +31,7 @@ test` each catch, so a review can say precisely which gate a defect would
   a template-literal `pool.query(\`SELECT * FROM \${name}\`)-style runtime
   interpolation of user input is always a BLOCK (SQL-injection surface, no
   type-checked call site).
-- Error-redaction review: the `{"detail","code"}` envelope never carries a
+- Error-redaction review: the `{"error":{"code","message"}}` envelope never carries a
   raw `pg` error, an aggregate error dump, or a Postgres constraint name —
   internal detail is logged (JSON logger), the client gets a stable `apperr`
   code.

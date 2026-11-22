@@ -72,7 +72,7 @@ CHECKLIST
   [ ] handler is a thin adapter — no business logic; calls the use case
   [ ] specs/openapi.yaml entry added; make gen run; src/gen/api committed
   [ ] route registered in module.ts register() (not inline in the bin)
-  [ ] envelope {"detail","code"} covers the failure modes; no leaky 500s
+  [ ] envelope {"error":{"code","message"}} covers the failure modes; no leaky 500s
   [ ] Deps unchanged OR new field is a use case / port wired in src/bin/api.ts
 ```
 

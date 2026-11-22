@@ -38,7 +38,7 @@ timers), and independent (no shared mutable state across tests).
 - Handler testing with `fastify.inject`: build the app via the slice's
   `module.ts` (a fake-wired `Deps`), inject requests without listening, an
   `authx` fake verifier/minter to mint a token, and asserting on the
-  `{"detail","code"}` envelope body
+  `{"error":{"code","message"}}` envelope body
 - Vitest fakes and speed: hermetic cases can run parallel (`describe.concurrent`
   where safe); a case that touches shared module-level state may not; no
   real `setTimeout` waits — synchronize via promises or the fake clock from

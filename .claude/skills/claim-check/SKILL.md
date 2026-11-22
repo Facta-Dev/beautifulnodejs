@@ -53,11 +53,11 @@ verified and cited.
 
 Provenance table, every claim in a finding needs a row.
 
-| claim | source | year | link |
-| --- | --- | --- | --- |
-| Evidence ids and the observed/derived/inferred confidence tiers | Craft Anything evidence doctrine | 2026 | `crates/evidence/src/lib.rs` |
-| The unknowns ledger and its closure rule | Craft Anything evidence doctrine | 2026 | `crates/evidence/src/unknown.rs` |
-| Comparing observed against derived evidence | Craft Anything engine | 2026 | `crates/engine/src/tools/compare_tools.rs` |
+| claim                                                           | source                           | year | link                                       |
+| --------------------------------------------------------------- | -------------------------------- | ---- | ------------------------------------------ |
+| Evidence ids and the observed/derived/inferred confidence tiers | Craft Anything evidence doctrine | 2026 | `crates/evidence/src/lib.rs`               |
+| The unknowns ledger and its closure rule                        | Craft Anything evidence doctrine | 2026 | `crates/evidence/src/unknown.rs`           |
+| Comparing observed against derived evidence                     | Craft Anything engine            | 2026 | `crates/engine/src/tools/compare_tools.rs` |
 
 ## Output Format
 

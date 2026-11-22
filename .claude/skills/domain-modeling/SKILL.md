@@ -66,10 +66,10 @@ pure implementation choices with no domain consequence.
 
 ## Research References
 
-| Claim | Source | Year | Link |
-|-------|--------|------|------|
+| Claim                                                                                  | Source                                                        | Year | Link       |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---- | ---------- |
 | Glossary and ADR conventions (challenge, sharpen, update inline, three ADR conditions) | `skills/engineering/domain-modeling/SKILL.md` (upstream, MIT) | 2026 | local file |
-| Existing `<app>` architecture vocabulary | `docs/architecture/14-glossary.md` | n/a | local file |
+| Existing `<app>` architecture vocabulary                                               | `docs/architecture/14-glossary.md`                            | n/a  | local file |
 
 ## Output Format
 

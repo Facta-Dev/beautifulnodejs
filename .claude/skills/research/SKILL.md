@@ -68,10 +68,10 @@ decision depends on.
 
 ## Research References
 
-| Claim | Source | Year | Link |
-|-------|--------|------|------|
+| Claim                                                                     | Source                                                 | Year | Link       |
+| ------------------------------------------------------------------------- | ------------------------------------------------------ | ---- | ---------- |
 | Primary-source rule, cited-brief deliverable, background-agent delegation | `skills/engineering/research/SKILL.md` (upstream, MIT) | 2026 | local file |
-| Repository docs a brief may cite | `docs/architecture/` | n/a | local file |
+| Repository docs a brief may cite                                          | `docs/architecture/`                                   | n/a  | local file |
 
 ## Output Format
 

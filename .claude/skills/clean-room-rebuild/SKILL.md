@@ -51,11 +51,11 @@ copying is not a concern.
 
 Provenance table, every claim in a finding needs a row.
 
-| claim | source | year | link |
-| --- | --- | --- | --- |
-| The clean-room method: observe, do not read the implementation | Craft Anything | 2026 | `README.md` ("Clean room") |
-| Golden rule 4: do not copy without the rights to do so | Craft Anything | 2026 | `AGENTS.md` |
-| The rebuild brief that records observation and credits | Craft Anything ai crate | 2026 | `crates/ai/src/rebuild/brief.rs` |
+| claim                                                          | source                  | year | link                             |
+| -------------------------------------------------------------- | ----------------------- | ---- | -------------------------------- |
+| The clean-room method: observe, do not read the implementation | Craft Anything          | 2026 | `README.md` ("Clean room")       |
+| Golden rule 4: do not copy without the rights to do so         | Craft Anything          | 2026 | `AGENTS.md`                      |
+| The rebuild brief that records observation and credits         | Craft Anything ai crate | 2026 | `crates/ai/src/rebuild/brief.rs` |
 
 ## Output Format
 

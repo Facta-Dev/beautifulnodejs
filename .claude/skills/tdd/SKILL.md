@@ -73,10 +73,10 @@ mechanical rename, or a configuration edit with no behaviour to pin down.
 
 ## Research References
 
-| Claim | Source | Year | Link |
-|-------|--------|------|------|
+| Claim                                                                                                    | Source                                            | Year | Link       |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---- | ---------- |
 | Red-green loop, seam agreement, anti-patterns (implementation-coupled, tautological, horizontal slicing) | `skills/engineering/tdd/SKILL.md` (upstream, MIT) | 2026 | local file |
-| `<app>` test layers and commands | `docs/architecture/11-testing-and-ci.md` | n/a | local file |
+| `<app>` test layers and commands                                                                         | `docs/architecture/11-testing-and-ci.md`          | n/a  | local file |
 
 ## Output Format
 

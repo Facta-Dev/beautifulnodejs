@@ -15,7 +15,7 @@ Explain how the <app> API actually behaves by tracing the real call path:
 `authx` require-auth preHandler (and the require-role guard on admin routes)
 on the protected routes, and each handler in `src/features/<slice>/http.ts`
 decodes the request with zod, reads the `Identity` resolved by `authx`, calls
-the slice's use case, and maps the result to the `{"detail","code"}`
+the slice's use case, and maps the result to the `{"error":{"code","message"}}`
 envelope. Every claim in the trace cites the file and line it came from;
 nothing about the current route table, preHandler order, or deps field set is
 ever invented or assumed from memory.

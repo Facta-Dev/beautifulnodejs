@@ -62,10 +62,10 @@ decisions are already settled.
 
 ## Research References
 
-| Claim | Source | Year | Link |
-|-------|--------|------|------|
+| Claim                                                               | Source                                                  | Year | Link       |
+| ------------------------------------------------------------------- | ------------------------------------------------------- | ---- | ---------- |
 | Design-tree, frontier and round structure; facts-vs-decisions split | `skills/productivity/grilling/SKILL.md` (upstream, MIT) | 2026 | local file |
-| `<app>` slice boundaries used to seed the tree | `docs/architecture/02-vertical-slicing.md` | n/a | local file |
+| `<app>` slice boundaries used to seed the tree                      | `docs/architecture/02-vertical-slicing.md`              | n/a  | local file |
 
 ## Output Format
 

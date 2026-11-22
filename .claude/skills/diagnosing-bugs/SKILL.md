@@ -74,10 +74,10 @@ review of a known diff (use `/review`).
 
 ## Research References
 
-| Claim | Source | Year | Link |
-|-------|--------|------|------|
+| Claim                                                                   | Source                                                        | Year | Link       |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------- | ---- | ---------- |
 | Diagnosis phases, loop-first discipline and falsifiable-hypothesis rule | `skills/engineering/diagnosing-bugs/SKILL.md` (upstream, MIT) | 2026 | local file |
-| Node test runner selection for a single failing case | `node --test --test-name-pattern` | n/a | local tool |
+| Node test runner selection for a single failing case                    | `node --test --test-name-pattern`                             | n/a  | local tool |
 
 ## Output Format
 

@@ -17,7 +17,7 @@ spec entry, and you do not let logic leak into the route handler.
 
 Design Fastify routes and the OpenAPI contract for <app> end to end: route
 URL+method, body/query decoding (`#platform/httpx` `decode` with a zod
-schema), the `{"detail","code"}` envelope mapping, the `specs/openapi.yaml`
+schema), the `{"error":{"code","message"}}` envelope mapping, the `specs/openapi.yaml`
 schema entry (openapi-typescript models land in committed `src/gen/api`),
 route registration in `src/features/<slice>/module.ts` `register(app, d)`,
 and the `Deps` fields that carry the use-case service. Keep handlers as a
@@ -74,7 +74,7 @@ CHECKLIST
   [ ] handler is a thin adapter — no business logic; calls the slice use case
   [ ] specs/openapi.yaml entry added; make gen run; src/gen/api committed
   [ ] route registered in module.ts register() (not inline in the bin)
-  [ ] envelope {"detail","code"} covers the failure modes; no leaky 500s
+  [ ] envelope {"error":{"code","message"}} covers the failure modes; no leaky 500s
   [ ] Deps unchanged OR new field is a use case / small interface wired in the bin
 ```
 

@@ -44,8 +44,8 @@ for facts outside the repository's corpus.
 
 Provenance table, every claim in a finding needs a row.
 
-| claim | source | year | link |
-| --- | --- | --- | --- |
+| claim                                                                            | source             | year | link                           |
+| -------------------------------------------------------------------------------- | ------------------ | ---- | ------------------------------ |
 | Index-first navigation, a bounded retrieval round count, and file:line citations | kb-retriever skill | 2026 | `skills/kb-retriever/SKILL.md` |
 
 ## Output Format
